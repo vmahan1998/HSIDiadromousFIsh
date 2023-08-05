@@ -2,10 +2,10 @@
 title: "A Minimal Book Example"
 author: "Yihui Xie"
 date: "`r Sys.Date()`"
-output: bookdown::gitbook
+output: bookdown::pdf_book
 site: bookdown::bookdown_site
 documentclass: book
-bibliography: [Lit.R- HSI Alewives.bib, packages.bib]
+bibliography: ["Lit.R_Alewives.bib", packages.bib]
 biblio-style: apalike
 link-citations: yes
 github-repo: rstudio/bookdown-demo

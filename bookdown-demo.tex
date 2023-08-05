@@ -1,0 +1,580 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{book}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+\usepackage{booktabs}
+\usepackage{amsthm}
+\makeatletter
+\def\thm@space@setup{%
+  \thm@preskip=8pt plus 2pt minus 4pt
+  \thm@postskip=\thm@preskip
+}
+\makeatother
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\usepackage[]{natbib}
+\bibliographystyle{apalike}
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={A Minimal Book Example},
+  pdfauthor={Yihui Xie},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{A Minimal Book Example}
+\author{Yihui Xie}
+\date{2023-08-02}
+
+\begin{document}
+\maketitle
+
+{
+\setcounter{tocdepth}{1}
+\tableofcontents
+}
+\hypertarget{preface}{%
+\chapter{Preface}\label{preface}}
+
+This is a \emph{sample} book written in \textbf{Markdown}. You can use anything that Pandoc's Markdown supports, e.g., a math equation \(a^2 + b^2 = c^2\).
+
+The \textbf{bookdown} package can be installed from CRAN or Github:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{install.packages}\NormalTok{(}\StringTok{"bookdown"}\NormalTok{)}
+\CommentTok{\# or the development version}
+\CommentTok{\# devtools::install\_github("rstudio/bookdown")}
+\end{Highlighting}
+\end{Shaded}
+
+Remember each Rmd file contains one and only one chapter, and a chapter is defined by the first-level heading \texttt{\#}.
+
+To compile this example to PDF, you need XeLaTeX. You are recommended to install TinyTeX (which includes XeLaTeX): \url{https://yihui.name/tinytex/}.
+
+\hypertarget{introduction}{%
+\chapter{Introduction}\label{introduction}}
+
+Diadromous fish species exhibit a remarkable migratory behavior between marine and freshwater environments, playing a pivotal role in the ecological and socio-economic fabric of coastal communities. Their migration enables access to essential resources, identification of suitable spawning grounds, and maintenance of population connectivity, contributing to the overall health and resilience of aquatic ecosystems (Durbin et al., 1979)(Walters et al., 2009). These migratory patterns are categorized into anadromy, involving spawning in fresh or brackish inland water, and catadromy, where reproduction occurs at sea (Limburg \& Waldman, 2009). The economic and cultural implications of these migratory movements are significant, as diadromous fish provide essential food resources, support recreational fisheries, and hold cultural importance for coastal and indigenous communities. Understanding and conserving these remarkable migratory species are crucial for sustaining livelihoods, traditions, and cultural heritage associated with coastal communities.
+
+In the Northeastern United States, diadromous fish populations have faced a historic decline over the past century due to dam construction in rivers, overexploitation, and pollution (Brown et al., 2000; Helfman, 2007; Limburg \& Waldman, 2009; Hare et al., 2021). Since the enactment of the Endangered Species Act (16 U.S.C. 1531-1544), a total of 47 anadromous fish species or populations have been federally listed as endangered or threatened, underscoring the urgency for conservation efforts (Federally Integrated Species Health (FISH) Act, 2017). However, no federally listed catadromous fish species currently exist. Christensen et al.~(2003) revealed a significant decline in the biomass of high-trophic level fishes in the North Atlantic over the past century, highlighting the far-reaching consequences of these population declines on coastal communities.
+
+Effective fisheries management and conservation efforts necessitate an understanding of the habitat requirements and distribution patterns of diadromous fish species (Helfman, 2007). By studying and monitoring the habitats used by these fish, key areas for protection and restoration can be identified, sustainable fishing practices can be implemented, and measures can be taken to mitigate pollution and habitat alteration. Preserving and restoring these habitats are critical steps toward ensuring the recovery and resilience of diadromous fish populations, which, in turn, supports the economic viability and cultural identity of coastal communities.
+
+Although existing HSI models have significantly contributed to understanding habitat preferences and guiding conservation efforts, it is important to acknowledge their limitations. Many of these models, developed based on the best available data and observations at the time, are outdated and often fail to accurately capture the complexity of diadromous fish populations. They are often based on data and observations that group together similar species, such as Atlantic and Shortnose Sturgeon or alewives and blueback herring, thereby overlooking the distinct ecological requirements and behaviors of these species (i.e., Pardue, 1983, add more ). Additionally, models can rely on observation methods that may not be directly applicable to specific ecosystems, such as the U.S. Fish and Wildlife Service Habitat Evaluation Procedures Program, which primarily focuses on developing detailed models for assessing relatively small areas in terrestrial or freshwater environments, can introduce biases and hinder accurate assessments (USFWS 1980a, 1980b, 1981; Able et al., 2020).
+
+Technological advancements such as acoustic telemetry, remote sensing, eDNA analysis, and high-resolution imaging have facilitated the increase in observations, studies, and data for diadromous fish behavior and movement. This wealth of new information has provided valuable insights into specific habitat requirements, migration patterns, and population dynamics of individual species within the diadromous fish community. To reflect these advancements more accurately, it is necessary to develop and refine additional HSI models.
+
+Refined models incorporating these index approaches will exhibit direct sensitivity to alterations in physical characteristics, ensuring a more precise representation of habitat suitability for each diadromous fish species. This improved accuracy enhances the assessment of the impact of changing environmental conditions on the distribution and abundance of diadromous fish throughout the Northeast United States, facilitating targeted conservation efforts and effective fisheries management strategies. These updated models can also account for the unique ecological characteristics of each species, enabling more precise assessments of their distribution and the identification of critical areas for juvenile and spawning adults. The objectives of this paper are to synthesize the latest life cycle observations, studies, and data on diadromous fish species in the Northeastern United States and develop updated species-specific habitat suitability index (HSI) models for Atlantic Salmon, Atlantic Sturgeon, Alewives, American Eels, American Shad, Atlantic Tomcod, Blueback Herring, Rainbow Smelt, Shortnose Sturgeon, and Striped Bass, considering their unique habitat preferences and ecological needs during the juvenile and spawning adult life stages. By achieving these objectives, this study aims to contribute to a broader understanding of diadromous fish ecology, support effective fisheries management, and inform conservation strategies for the benefit of both the species and the coastal communities dependent on them.
+
+\hypertarget{methods}{%
+\chapter{Methods}\label{methods}}
+
+We describe our methods in this chapter.
+
+Math can be added in body using usual syntax like this
+
+\hypertarget{math-example}{%
+\section{math example}\label{math-example}}
+
+\(p\) is unknown but expected to be around 1/3. Standard error will be approximated
+
+\[
+SE = \sqrt(\frac{p(1-p)}{n}) \approx \sqrt{\frac{1/3 (1 - 1/3)} {300}} = 0.027
+\]
+
+You can also use math in footnotes like this\footnote{where we mention \(p = \frac{a}{b}\)}.
+
+We will approximate standard error to 0.027\footnote{\(p\) is unknown but expected to be around 1/3. Standard error will be approximated
+
+  \[
+  SE = \sqrt(\frac{p(1-p)}{n}) \approx \sqrt{\frac{1/3 (1 - 1/3)} {300}} = 0.027
+  \]}
+
+\hypertarget{alewives}{%
+\chapter{Alewives}\label{alewives}}
+
+This chapter aims to explore the habitat preferences and life cycle of alewives (Alosa pseudoharengus) in the northeastern United States. Alewives have faced significant declines, leading to their classification as a ``species of concern'' by the U.S. National Marine Fisheries Service \citep{nmfs_national_marine_fisheries_service_species_2009}. A combination of factors that have contributed to this decline, include deteriorating water quality, habitat loss, offshore bycatch/overfishing, increased predation, and dam construction \citep{kocovsky_linking_2008, nmfs_national_marine_fisheries_service_species_2009, bethoney_environmental_2014}. They have also been considered for inclusion in the U.S. Endangered Species List, as indicated in reports by the National Marine Fisheries Service in 2013 \citep{nmfs_national_marine_fisheries_service_endangered_2013}.
+
+Recent stock assessment reports reveal diverse trends in documented alewife runs over the last ten years, with some populations showing signs of stabilization or even growth \citep{asmfc_river_2017}. Additionally, in 2019, the National Marine Fisheries Service concluded that listing the alewife as threatened or endangered under the Endangered Species Act (ESA) was not warranted \citep{nmfs_national_marine_fisheries_service_not_2019}.
+
+Alewives are widely distributed throughout the northeastern United States, thriving in freshwater rivers and estuaries along the Atlantic coast \citep{asmfc_fishery_1985}. Historically, they undertook extensive migrations to spawn in freshwater tidal systems, but limited information is available about their estuary and marine movements during the juvenile and adult phases \citep{mccartin_new_2019}.
+
+This chapter aims to explore the favorable habitat conditions for spawning adults, nonmigratory juveniles, and alewife larvae, which are influenced by factors such as suitable spawning habitats, water quality conditions, and availability of appropriate food resources \citep{lynch_projected_2015}.
+
+\hypertarget{life-cycle-overview}{%
+\section{Life cycle overview}\label{life-cycle-overview}}
+
+The alewife exhibits a complex life cycle characterized by distinct stages and behaviors. Spawning typically occurs in waves during the spring season, triggered by rising water temperatures and increasing day length \citep{asmfc_amendment_2009, able_alewife_2020}. Adult alewives migrate upstream from their marine environment to reach suitable spawning habitats \citep{bigelow_fishes_1953, bigelow_bigelow_2002}. Recent observations show that alewife migration can also be correlated with the lunar phase \citep{legett_daily_2021}.
+
+Upon arrival at the spawning grounds, adult alewives engage in impressive spawning runs, where large aggregations gather to deposit their adhesive eggs over gravel or other hard substrates \citep{pardue_habitat_1983, janssen_preference_2004}. After spawning, both males and females return to the marine environment, but recent studies suggest that alewives can make multiple spawning trips upstream during the migratory season \citep{bigelow_fishes_1953, bigelow_bigelow_2002, mccartin_new_2019}.
+
+After the spawning process, the eggs go through an incubation period that typically lasts for several days \citep{bigelow_fishes_1953, bigelow_bigelow_2002}. Once hatched, the larvae begin their migration upstream, eventually making their way towards estuary habitats where they will reside as they grow \citep{pardue_habitat_1983}. This estuary environment serves as a nursery for juvenile alewives until they eventually migrate to the sea \citep{kosa_processes_2001, laney_relationship_1997}. It is noteworthy that the survival rate for larvae is relatively low, with only a small percentage successfully returning to the sea for each female alewife that entered the spawning grounds \citep{kissil_spawning_1974}. Similarly, mortality rates for migratory adults during a spawning season can reach as high as 90\% in southern regions \citep{brady_part_2005}.
+
+\hypertarget{habitat-requirements}{%
+\section{Habitat Requirements}\label{habitat-requirements}}
+
+\hypertarget{spawning-adult-alewives}{%
+\subsection{Spawning Adult Alewives}\label{spawning-adult-alewives}}
+
+Spawning adult alewives exhibit specific preferences and requirements related to various habitat factors. Their annual migration during spawning is energetically demanding, with notable variations in behavior observed. Some studies report fasting during the day and extensive feeding at night, while others document refraining from eating until their return downstream to productive tidal habitats \citep{bigelow_fishes_1953, janssen_feeding_1980, bigelow_bigelow_2002}. The preferred habitats for spawning are lacustrine and fluvial environments rather than riverine \citep{reback_survey_2004, frank_role_2011, overton_spatial_2012}.
+
+Temperature preferences during spawning vary across studies, but there is a consensus that optimal temperatures for successful spawning fall within the range of 12 to 16 degrees Celsius \citep{brown_habitat_2000}. Suitable spawning temperatures broadly span from 8 to 22 degrees Celsius \citep{tyus_movements_1974, pardue_habitat_1983, collette_fishes_2003, mather_assessing_2012} and ceases above 29 degrees Celsius \citep{kissil_spawning_1974, pardue_habitat_1983}. Deviations from the optimal temperature range can significantly impact spawning success and the timing of migration. Water temperature also plays a critical role in alewife abundance and movement patterns \citep{legett_daily_2021}.
+
+Regarding depth preferences, spawning adult alewives are generally known to favor depths ranging from MLT-10 meters \citep{brown_habitat_2000}, but recent field observations indicate that a significant proportion of alewives can be found in habitats shallower than 2 meters \citep{mather_assessing_2012}. Alewives are capable of spawning in both shallow and deep water environments, highlighting their adaptability in selecting suitable spawning locations \citep{oconnell_spawning_1997}.
+
+The current understanding of adult alewife spawning behavior challenges the traditional assumption that anadromous species exclusively rely on freshwater environments for reproduction. \citet{brown_habitat_2000} found that alewives prefer habitats with salinity concentrations below 15 psu for spawning, while concentrations surpassing 20 psu are deemed unsuitable. However, field studies have documented adult alewives engaging in spawning activities across a diverse array of estuarine habitats with varying salinity levels, including ponds within coastal systems, pond-like regions within coastal rivers and streams, oxbows, eddies, backwaters, stream pools, and flooded swamps \citep{pardue_habitat_1983, mullen_species_1986, collette_fishes_2003, walsh_early_2005}. This revised understanding challenges the longstanding notion that alewives are exclusively obligated to freshwater for spawning purposes. Additionally, laboratory experiments by \citet{dimaggio_spawning_2015} have demonstrated notable survival rates of alewife embryos at salinities ranging up to and including 30‰, indicating their adaptability to a wider range of salinity conditions during their reproductive process.
+
+Flow velocity is a crucial factor influencing the spawning of alewives \citep{tommasi_effect_2015}. These fish are known to prefer slow-moving habitats with little or no current for their spawning activities, as indicated by \citet{walsh_early_2005}. \citet{pardue_habitat_1983} identifies velocities up to 0.3 m/s as suitable for spawning. However, \citet{haro_swimming_2004} conducted experiments showing that migratory alewives can travel farther distances upstream when flow velocities are up to 1.5 m/s, compared to 3.5 m/s. Notably, these experiments reveal very little suitability for spawning around 4.5 m/s \citep{haro_swimming_2004}. Understanding the preferred flow velocities is essential in managing and preserving the habitat conditions required for successful alewife spawning.
+
+Previous studies have presented conflicting information regarding the substrate preferences of spawning adult alewives. While some studies suggest that alewives appear to prefer spawning over hard substrates such as gravel and rock \citep[\citet{brown_habitat_2000}]{pardue_habitat_1983}, possibly due to the eggs' better adhesion to such surfaces, recent research provides evidence supporting a broader range of substrate utilization by alewives. Notably, \citet{able_alewife_2020} documented observations of alewives spawning over sandy substrates, alongside the presence of eggs near hard substrates. Additionally, \citet{oconnell_spawning_1997} also support the idea that alewives are known to spawn over a range of substrates, including gravel, sand, vegetation, and other soft substrates. Furthermore, spawning adult alewives do not appear to show a strong preference for habitat containing sub-aquatic vegetation \citep{killgore_distribution_1988, rozas_rosubmerged_1988}. Understanding these substrate preferences is crucial for managing and preserving suitable spawning habitats for alewives.
+
+\hypertarget{premigratory-juvenile-alewives-and-larvae}{%
+\subsection{Premigratory Juvenile Alewives and Larvae}\label{premigratory-juvenile-alewives-and-larvae}}
+
+Premigratory juvenile alewives and larvae exhibit distinct habitat preferences and requirements, which play a crucial role in influencing their survival and growth. Several factors influence the abundance and successful development of these young alewives, including river flow, temperature, salinity, depth, and substrate \citep{pardue_habitat_1983, walsh_early_2005, tommasi_effect_2015}. Understanding these ecological factors is vital for effective alewife management, informed decision-making, and the preservation of alewife populations in critical habitats.
+
+Temperature significantly influences the distribution, behavior, and early development of premigratory juvenile alewives and larvae. Optimal temperatures for juvenile alewife development fall within the range of 20°C to 23°C, with a broader suitability range for juvenile and larvae recruitment from 16°C to 26°C \citep{fay_alewifeblueback_1983, tommasi_effect_2015}. Hatching success is optimal at around 20.8°C, decreases significantly between 26.7°C to 26.8°C, and ceases entirely above 29.7°C \citep{pardue_habitat_1983}. Juvenile alewives prefer temperatures ranging from 12°C to 30°C, with optimal suitability from 20°C to 22°C and low suitability at 6°C \citep{pardue_habitat_1983, brown_habitat_2000, able_alewife_2020}. Juvenile river herring do not survive temperatures of 3°C or less, rendering such temperatures unsuitable (Otto et al., 1976). Alewife eggs can develop within a temperature range of 11 to 28 degrees Celsius, but hatching success is optimal around 20.8°C, significantly decreases at 26.7°C-26.8°C, and stops completely around 29.7°C \citep{pardue_habitat_1983, klauda_alewife_1991}. Maintaining water temperatures within these ranges is crucial for the successful development and overall health of premigratory juvenile alewives and larvae, as deviations can impact their growth rates and survival.
+
+The depth preferences of premigratory juvenile alewives differ from their adult counterparts, as juveniles exhibit a preference for depths ranging from 0 to 10 meters, with no habitat suitability observed beyond 20 meters \citep{brown_habitat_2000, hook_annual_2008}. Research by \citet{pardue_habitat_1983} further supports this finding, indicating that juveniles prefer depths between 0.5 to 5 meters. Studies conducted in Lake Ontario, Canada, revealed that early post-hatch larvae were most abundant in shallow areas less than 3 meters deep, with larger larvae occupying progressively deeper habitats \citep{ingel_habitat_2013}. Additionally, observations in the Margaree River, Nova Scotia, showed that alewife larvae were predominantly found in areas shallower than 2 meters, while the abundance of juvenile alewives increased around five meters deep \citep{gibson_statistical_2003}. These shallow-water habitats offer protection from predators and facilitate access to suitable food sources, promoting proper growth and development before their downstream migration.
+
+Juvenile alewives display higher salinity preferences than spawning adults, favoring concentrations exceeding 10 psu, and exhibiting some suitability even up to 30 psu \citep{brown_habitat_2000, pardue_habitat_1983}. \citet{fay_alewifeblueback_1983} reported the presence of larvae and juveniles in areas with salinity levels below 12 psu, also indicating their presence in lower salinity environments. Understanding the salinity preferences of premigratory juvenile alewives is crucial for effective habitat management, supporting the health and survival of this critical life stage in the alewife's life cycle. Research by \citet{turner_juvenile_2016} and \citet{able_alewife_2020} highlights the preference of these juveniles for estuarine habitats with salinity concentrations ranging from 0.5 to 25 psu, providing an optimal balance between freshwater and marine environments, conducive to juvenile growth and survival. However, salinity levels exceeding 20 psu may limit habitat suitability, impacting feeding and physiological processes \citep{fabrizio_extent_2021}. Nevertheless, exposure to higher salinities, up to 30 psu, has minimal adverse effects on juvenile alewives' health and survival, with 100\% survival reported at 15 psu \citep{dimaggio_spawning_2015}. Ensuring suitable salinity levels in estuarine habitats is essential for supporting the healthy development and successful transition of juveniles as they prepare for migration to the sea.
+
+Flow velocity is a crucial determinant of the development and survival of premigratory juvenile alewives. Optimal conditions for larvae and egg development are observed when surface flow ranges from 0 to 0.3 m/s \citep{pardue_habitat_1983}. Juvenile alewives demonstrate a preference for habitats with flow velocities ranging from 0.05 to 0.17 m/s \citep{richkus_response_1975}. Habitat patches with velocity values ranging from 0.06 m/s to 0.16 m/s have a 50\% probability of alewife egg presence \citep{oconnell_habitat_1999}. Larval alewives are consistently found in water velocities up to approximately 0.12 m/s, but they are absent in faster currents \citep{ingel_habitat_2013}. However, higher flow velocities have the potential to displace recently spawned eggs from their initial location \citep{able_alewife_2020}. Slower flow rates offer suitable conditions for juveniles to conserve energy while effectively foraging for food. On the contrary, higher flow velocities may hinder their ability to access critical food resources and maintain their position in the water column \citep{haro_swimming_2004}. Understanding the flow velocity preferences and effects on premigratory juvenile alewives is crucial for effective habitat management and their successful transition to adulthood.
+
+The substrate preferences of premigratory juvenile alewives are diverse, reflecting their adaptability to various environments. While previous studies suggest a preference for sandy substrates (Fay et al., 1983), recent research by \citet{able_alewife_2020} and \citet{brown_habitat_2000} indicates that juveniles utilize a wide range of substrates, including sand, gravel, and sub-aquatic vegetation. This substrate diversity provides ample shelter and food sources, supporting their growth and survival during this critical life stage. Additionally, observations by \citet{janssen_preference_2004} support the notion that juvenile alewives may also exhibit a preference for rocky substrate. Seagrass coverage is vital to the habitat of premigratory juvenile alewives. Although some studies suggest that alewife larvae may avoid areas with aquatic vegetation \citep{ingel_habitat_2013}, research by \citet{laney_relationship_1997} and \citet{smith_overlapping_2015} demonstrates that seagrass beds offer essential nursery habitat, providing refuge from predators and abundant food sources. Seagrass beds contribute to water quality by stabilizing sediments and promoting nutrient cycling, creating a favorable environment for juvenile alewives to thrive. These vegetated areas are also important for overwintering habitat \citep{killgore_distribution_1988}. Understanding the diverse substrate preferences and the significance of seagrass coverage is critical for effective habitat management and the successful development of premigratory juvenile alewives.
+
+\hypertarget{habitat-suitability-models}{%
+\section{Habitat suitability models}\label{habitat-suitability-models}}
+
+The Alewives Habitat Suitability models, originally developed by \citet{brown_habitat_2000} and \citet{pardue_habitat_1983}, with reliance on similar sources such as \citet{bigelow_fishes_1953} and \citet{bigelow_bigelow_2002}, possess several limitations that make them inadequate for current applications. Primarily, these models are constructed solely on observations of alewives' daytime behavior, neglecting their significant nocturnal activity patterns. Recent studies have revealed that alewives are primarily active at night, engaging in feeding and exhibiting substantial downstream movement during these nocturnal periods \citep{janssen_will_1978, janssen_feeding_1980, mccartin_new_2019}. \citet{collette_fishes_2003} even notes that mixed gender groups of alewife spawn in stream pools in the evening. Consequently, the exclusive focus on daytime behavior in the existing models fails to capture the true habitat preferences and requirements of alewives, particularly in estuary and brackish environments. Since the release of these models, updated observations and stock assessments have been published that offer more detailed information on the habitat for alewives.
+
+Furthermore, the current models predominantly consider variables such as temperature, depth, and substrate, while disregarding other crucial factors that significantly influence alewives' habitat selection, including flow velocity and life stage differences. This limited scope results in incomplete assessments of habitat suitability. Additionally, inconsistencies and potential inaccuracies arise within the models due to conflicting information regarding the substrate, salinity, and depth preferences of alewives. These deficiencies undermine the models' effectiveness in predicting the suitability of habitats for alewives.
+
+To address these shortcomings, updated models should encompass a more comprehensive understanding of alewives' behavior, specifically acknowledging their use of estuarine and brackish habitats. These habitats serve as critical areas for alewives, exhibiting relatively high levels of habitat use \citep{mccartin_new_2019}. Incorporating these estuarine and brackish areas into management strategies is of paramount importance to ensure the conservation and successful management of the species. Notably, utilizing estuaries and brackish habitats for spawning may offer energetically favorable conditions for alewives, as it eliminates the need for them to acclimate to complete freshwater environments \citep{dimaggio_spawning_2015}. This recognition highlights the significance of incorporating these habitats into conservation efforts and management plans to safeguard the species and support their reproductive success.
+
+\hypertarget{spawning-adult-alewives-1}{%
+\subsection{Spawning Adult Alewives}\label{spawning-adult-alewives-1}}
+
+\hypertarget{juvenile-alewives}{%
+\subsection{Juvenile Alewives}\label{juvenile-alewives}}
+
+\hypertarget{figures-tables}{%
+\subsection{Figures \& Tables}\label{figures-tables}}
+
+\begin{verbatim}
+## Warning: package 'knitr' was built under R version 4.1.3
+\end{verbatim}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.1560}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.8440}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Index
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Breakpoints
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+a. Depth & Depth = 2 m: 0.5 \\
+Depth \textgreater{} 2 m: 1 & \\
+b. Salinity & Salinity \textless{} 15 psu: 1 \\
+Salinity = 20 psu: 0.5 & \\
+c.~Temperature & Temperature 12-16°C: 1 \\
+Temperature \textgreater{} 16°C \& = 29.7°C: 0.5 & \\
+d.~Flow Velocity & Velocity 0.06-0.16 m/s: 1 \\
+Velocity \textless{} 0.3 m/s: 0.5 & \\
+e. Substrate & Hard (gravel or rock): 0.8 \\
+\end{longtable}
+
+Sandy: 0.6
+Soft (other substrates): 0.7
+Suspended sediments: 0.9 \textbar{}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{bookdown-demo_files/figure-latex/unnamed-chunk-5-1} 
+
+}
+
+\caption{Spawning Adult Alewife Suitability Indices}\label{fig:unnamed-chunk-5}
+\end{figure}
+
+\hypertarget{american-eels}{%
+\chapter{American Eels}\label{american-eels}}
+
+\hypertarget{life-cycle-overview-1}{%
+\section{Life cycle overview}\label{life-cycle-overview-1}}
+
+\hypertarget{habitat-requirements-1}{%
+\section{Habitat Requirements}\label{habitat-requirements-1}}
+
+\hypertarget{spawning-adult-american-eels}{%
+\subsection{Spawning Adult American Eels}\label{spawning-adult-american-eels}}
+
+\hypertarget{juvenile-american-eels}{%
+\subsection{Juvenile American Eels}\label{juvenile-american-eels}}
+
+\hypertarget{habitat-suitability-models-1}{%
+\section{Habitat suitability models}\label{habitat-suitability-models-1}}
+
+\hypertarget{spawning-adult-american-eels-1}{%
+\subsection{Spawning Adult American Eels}\label{spawning-adult-american-eels-1}}
+
+\hypertarget{juvenile-american-eels-1}{%
+\subsection{Juvenile American Eels}\label{juvenile-american-eels-1}}
+
+\hypertarget{figures-tables-1}{%
+\section{Figures \& Tables}\label{figures-tables-1}}
+
+\hypertarget{american-shad}{%
+\chapter{American Shad}\label{american-shad}}
+
+\hypertarget{life-cycle-overview-2}{%
+\section{Life cycle overview}\label{life-cycle-overview-2}}
+
+\hypertarget{habitat-requirements-2}{%
+\section{Habitat Requirements}\label{habitat-requirements-2}}
+
+\hypertarget{spawning-adult-american-shad}{%
+\subsection{Spawning Adult American Shad}\label{spawning-adult-american-shad}}
+
+\hypertarget{juvenile-american-shad}{%
+\subsection{Juvenile American Shad}\label{juvenile-american-shad}}
+
+\hypertarget{habitat-suitability-models-2}{%
+\section{Habitat suitability models}\label{habitat-suitability-models-2}}
+
+\hypertarget{spawning-adult-american-shad-1}{%
+\subsection{Spawning Adult American Shad}\label{spawning-adult-american-shad-1}}
+
+\hypertarget{juvenile-american-shad-1}{%
+\subsection{Juvenile American Shad}\label{juvenile-american-shad-1}}
+
+\hypertarget{figures-tables-2}{%
+\section{Figures \& Tables}\label{figures-tables-2}}
+
+\hypertarget{atlantic-salmon}{%
+\chapter{Atlantic Salmon}\label{atlantic-salmon}}
+
+\hypertarget{life-cycle-overview-3}{%
+\section{Life cycle overview}\label{life-cycle-overview-3}}
+
+\hypertarget{habitat-requirements-3}{%
+\section{Habitat Requirements}\label{habitat-requirements-3}}
+
+\hypertarget{spawning-adult-atlantic-salmon}{%
+\subsection{Spawning Adult Atlantic Salmon}\label{spawning-adult-atlantic-salmon}}
+
+\hypertarget{juvenile-atlantic-salmon}{%
+\subsection{Juvenile Atlantic Salmon}\label{juvenile-atlantic-salmon}}
+
+\hypertarget{habitat-suitability-models-3}{%
+\section{Habitat suitability models}\label{habitat-suitability-models-3}}
+
+\hypertarget{spawning-adult-atlantic-salmon-1}{%
+\subsection{Spawning Adult Atlantic Salmon}\label{spawning-adult-atlantic-salmon-1}}
+
+\hypertarget{juvenile-atlantic-salmon-1}{%
+\subsection{Juvenile Atlantic Salmon}\label{juvenile-atlantic-salmon-1}}
+
+\hypertarget{figures-tables-3}{%
+\section{Figures \& Tables}\label{figures-tables-3}}
+
+\hypertarget{atlantic-sturgeon}{%
+\chapter{Atlantic Sturgeon}\label{atlantic-sturgeon}}
+
+\hypertarget{life-cycle-overview-4}{%
+\section{Life cycle overview}\label{life-cycle-overview-4}}
+
+\hypertarget{habitat-requirements-4}{%
+\section{Habitat Requirements}\label{habitat-requirements-4}}
+
+\hypertarget{spawning-adult-atlantic-sturgeon}{%
+\subsection{Spawning Adult Atlantic Sturgeon}\label{spawning-adult-atlantic-sturgeon}}
+
+\hypertarget{juvenile-atlantic-sturgeon}{%
+\subsection{Juvenile Atlantic Sturgeon}\label{juvenile-atlantic-sturgeon}}
+
+\hypertarget{habitat-suitability-models-4}{%
+\section{Habitat suitability models}\label{habitat-suitability-models-4}}
+
+\hypertarget{spawning-adult-atlantic-sturgeon-1}{%
+\subsection{Spawning Adult Atlantic Sturgeon}\label{spawning-adult-atlantic-sturgeon-1}}
+
+\hypertarget{juvenile-atlantic-sturgeon-1}{%
+\subsection{Juvenile Atlantic Sturgeon}\label{juvenile-atlantic-sturgeon-1}}
+
+\hypertarget{figures-tables-4}{%
+\section{Figures \& Tables}\label{figures-tables-4}}
+
+\hypertarget{atlantic-tomcod}{%
+\chapter{Atlantic Tomcod}\label{atlantic-tomcod}}
+
+\hypertarget{life-cycle-overview-5}{%
+\section{Life cycle overview}\label{life-cycle-overview-5}}
+
+\hypertarget{habitat-requirements-5}{%
+\section{Habitat Requirements}\label{habitat-requirements-5}}
+
+\hypertarget{spawning-adult-atlantic-tomcod}{%
+\subsection{Spawning Adult Atlantic Tomcod}\label{spawning-adult-atlantic-tomcod}}
+
+\hypertarget{juvenile-atlantic-tomcod}{%
+\subsection{Juvenile Atlantic Tomcod}\label{juvenile-atlantic-tomcod}}
+
+\hypertarget{habitat-suitability-models-5}{%
+\section{Habitat suitability models}\label{habitat-suitability-models-5}}
+
+\hypertarget{spawning-adult-atlantic-tomcod-1}{%
+\subsection{Spawning Adult Atlantic Tomcod}\label{spawning-adult-atlantic-tomcod-1}}
+
+\hypertarget{juvenile-atlantic-tomcod-1}{%
+\subsection{Juvenile Atlantic Tomcod}\label{juvenile-atlantic-tomcod-1}}
+
+\hypertarget{figures-tables-5}{%
+\section{Figures \& Tables}\label{figures-tables-5}}
+
+\hypertarget{blueback-herring}{%
+\chapter{Blueback Herring}\label{blueback-herring}}
+
+\hypertarget{life-cycle-overview-6}{%
+\section{Life cycle overview}\label{life-cycle-overview-6}}
+
+\hypertarget{habitat-requirements-6}{%
+\section{Habitat Requirements}\label{habitat-requirements-6}}
+
+\hypertarget{spawning-adult-blueback-herring}{%
+\subsection{Spawning Adult Blueback Herring}\label{spawning-adult-blueback-herring}}
+
+\hypertarget{juvenile-blueback-herring}{%
+\subsection{Juvenile Blueback Herring}\label{juvenile-blueback-herring}}
+
+\hypertarget{habitat-suitability-models-6}{%
+\section{Habitat suitability models}\label{habitat-suitability-models-6}}
+
+\hypertarget{spawning-adult-blueback-herring-1}{%
+\subsection{Spawning Adult Blueback Herring}\label{spawning-adult-blueback-herring-1}}
+
+\hypertarget{juvenile-blueback-herring-1}{%
+\subsection{Juvenile Blueback Herring}\label{juvenile-blueback-herring-1}}
+
+\hypertarget{figures-tables-6}{%
+\section{Figures \& Tables}\label{figures-tables-6}}
+
+\hypertarget{rainbow-smelt}{%
+\chapter{Rainbow Smelt}\label{rainbow-smelt}}
+
+\hypertarget{life-cycle-overview-7}{%
+\section{Life cycle overview}\label{life-cycle-overview-7}}
+
+\hypertarget{habitat-requirements-7}{%
+\section{Habitat Requirements}\label{habitat-requirements-7}}
+
+\hypertarget{spawning-adult-rainbow-smelt}{%
+\subsection{Spawning Adult Rainbow Smelt}\label{spawning-adult-rainbow-smelt}}
+
+\hypertarget{juvenile-rainbow-smelt}{%
+\subsection{Juvenile Rainbow Smelt}\label{juvenile-rainbow-smelt}}
+
+\hypertarget{habitat-suitability-models-7}{%
+\section{Habitat suitability models}\label{habitat-suitability-models-7}}
+
+\hypertarget{spawning-adult-rainbow-smelt-1}{%
+\subsection{Spawning Adult Rainbow Smelt}\label{spawning-adult-rainbow-smelt-1}}
+
+\hypertarget{juvenile-rainbow-smelt-1}{%
+\subsection{Juvenile Rainbow Smelt}\label{juvenile-rainbow-smelt-1}}
+
+\hypertarget{figures-tables-7}{%
+\section{Figures \& Tables}\label{figures-tables-7}}
+
+\hypertarget{shortnose-sturgeon}{%
+\chapter{Shortnose Sturgeon}\label{shortnose-sturgeon}}
+
+\hypertarget{life-cycle-overview-8}{%
+\section{Life cycle overview}\label{life-cycle-overview-8}}
+
+\hypertarget{habitat-requirements-8}{%
+\section{Habitat Requirements}\label{habitat-requirements-8}}
+
+\hypertarget{spawning-adult-shortnose-sturgeon}{%
+\subsection{Spawning Adult Shortnose Sturgeon}\label{spawning-adult-shortnose-sturgeon}}
+
+\hypertarget{juvenile-shortnose-sturgeon}{%
+\subsection{Juvenile Shortnose Sturgeon}\label{juvenile-shortnose-sturgeon}}
+
+\hypertarget{habitat-suitability-models-8}{%
+\section{Habitat suitability models}\label{habitat-suitability-models-8}}
+
+\hypertarget{spawning-adult-shortnose-sturgeon-1}{%
+\subsection{Spawning Adult Shortnose Sturgeon}\label{spawning-adult-shortnose-sturgeon-1}}
+
+\hypertarget{juvenile-shortnose-sturgeon-1}{%
+\subsection{Juvenile Shortnose Sturgeon}\label{juvenile-shortnose-sturgeon-1}}
+
+\hypertarget{figures-tables-8}{%
+\section{Figures \& Tables}\label{figures-tables-8}}
+
+\hypertarget{striped-bass}{%
+\chapter{Striped Bass}\label{striped-bass}}
+
+\hypertarget{life-cycle-overview-9}{%
+\section{Life cycle overview}\label{life-cycle-overview-9}}
+
+\hypertarget{habitat-requirements-9}{%
+\section{Habitat Requirements}\label{habitat-requirements-9}}
+
+\hypertarget{spawning-adult-striped-bass}{%
+\subsection{Spawning Adult Striped Bass}\label{spawning-adult-striped-bass}}
+
+\hypertarget{juvenile-striped-bass}{%
+\subsection{Juvenile Striped Bass}\label{juvenile-striped-bass}}
+
+\hypertarget{habitat-suitability-models-9}{%
+\section{Habitat suitability models}\label{habitat-suitability-models-9}}
+
+\hypertarget{spawning-adult-striped-bass-1}{%
+\subsection{Spawning Adult Striped Bass}\label{spawning-adult-striped-bass-1}}
+
+\hypertarget{juvenile-striped-bass-1}{%
+\subsection{Juvenile Striped Bass}\label{juvenile-striped-bass-1}}
+
+\hypertarget{figures-tables-9}{%
+\section{Figures \& Tables}\label{figures-tables-9}}
+
+\hypertarget{synthesis-and-discussion}{%
+\chapter{Synthesis and Discussion}\label{synthesis-and-discussion}}
+
+\begin{itemize}
+\tightlist
+\item
+  Comparison of habitat suitability models across species
+\item
+  Implications for fisheries management and conservation
+\item
+  Future directions and potential improvements for habitat suitability models
+\end{itemize}
+
+\hypertarget{conclusion}{%
+\chapter{Conclusion}\label{conclusion}}
+
+\begin{itemize}
+\tightlist
+\item
+  Summary of key findings
+\item
+  Importance of habitat suitability models for diadromous fish management
+\item
+  Final remarks and call to action
+\end{itemize}
+
+  \bibliography{Lit.R\_Alewives.bib,packages.bib}
+
+\end{document}

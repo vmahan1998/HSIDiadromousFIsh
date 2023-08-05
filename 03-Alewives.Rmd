@@ -2,6 +2,7 @@
 output:
   word_document: default
   html_document: default
+  pdf_document: default
 ---
 # Alewives
 
@@ -24,7 +25,7 @@ After the spawning process, the eggs go through an incubation period that typica
 ## Habitat Requirements 
 ### Spawning Adult Alewives 
 
-Spawning adult alewives exhibit specific preferences and requirements related to various habitat factors. Their annual migration during spawning is energetically demanding, with notable variations in behavior observed. Some studies report fasting during the day and extensive feeding at night, while others document refraining from eating until their return downstream to productive tidal habitats [@bigelow_fishes_1953; ; @janssen_feeding_1980; @bigelow_bigelow_2002]. The preferred habitats for spawning are lacustrine and fluvial environments rather than riverine [@reback_survey_2004; @frank_role_2011; @overton_spatial_2012].
+Spawning adult alewives exhibit specific preferences and requirements related to various habitat factors. Their annual migration during spawning is energetically demanding, with notable variations in behavior observed. Some studies report fasting during the day and extensive feeding at night, while others document refraining from eating until their return downstream to productive tidal habitats [@bigelow_fishes_1953; @janssen_feeding_1980; @bigelow_bigelow_2002]. The preferred habitats for spawning are lacustrine and fluvial environments rather than riverine [@reback_survey_2004; @frank_role_2011; @overton_spatial_2012].
 
 Temperature preferences during spawning vary across studies, but there is a consensus that optimal temperatures for successful spawning fall within the range of 12 to 16 degrees Celsius [@brown_habitat_2000]. Suitable spawning temperatures broadly span from 8 to 22 degrees Celsius [@tyus_movements_1974; @pardue_habitat_1983; @collette_fishes_2003; @mather_assessing_2012] and ceases above 29 degrees Celsius [@kissil_spawning_1974; @pardue_habitat_1983]. Deviations from the optimal temperature range can significantly impact spawning success and the timing of migration. Water temperature also plays a critical role in alewife abundance and movement patterns [@legett_daily_2021].
 
@@ -80,54 +81,55 @@ To address these shortcomings, updated models should encompass a more comprehens
 #       x = "Longitude", y = "Latitude")
 ```
 
-```{r, echo= FALSE, include=TRUE, fig.align = "center", fig.cap="Spawning Adult Alewife Suitability Breakpoints", out.width="80%"}
+```{r, echo= FALSE, include=TRUE, fig.align = "center", fig.cap="Alewife Suitability Indices", out.width="80%"}
+library(dplyr)
 library(knitr)
+library(kableExtra)
+data= matrix(c('A','','','','','B','C','D','E','A','','','','','B','C','D','E'), ncol=1, byrow=TRUE)
 
-# Create the data for the table
-index <- c("a. Depth", "b. Salinity", "c. Temperature", "d. Flow Velocity", "e. Substrate")
-breakpoints <- c("Depth ≤ 2 m: 0.5\nDepth > 2 m: 1",
-                 "Salinity < 15 psu: 1\nSalinity ≤ 20 psu: 0.5",
-                 "Temperature 12-16°C: 1\nTemperature > 16°C & ≤ 29.7°C: 0.5",
-                 "Velocity 0.06-0.16 m/s: 1\nVelocity < 0.3 m/s: 0.5",
-                 "Hard (gravel or rock): 0.8\nSandy: 0.6\nSoft (other substrates): 0.7\nSuspended sediments: 0.9")
+# specify the column names and row names of matrix
+colnames(data) = c('Variable')
+rownames(data) <- c('Spawning Adults','','','','','','','','','Nonmigratory Juvenile and Larvae','','','','','','','','')
 
-# Create a data frame
-df <- data.frame(Index = index, Breakpoints = breakpoints)
+## create columns for table
+##Parameters
+Parameter <- c('Temperature','','','','','Depth','Salinity','Flow Velocity','Substrate','Temperature','','','','','Depth','Salinity','Flow Velocity','Substrate')
 
-# Print the table using kable
-kable(df, format = "markdown")
+data <- cbind(data, Parameter)
+
+#Equations
+HSI <- c("$$temp_{C}=0-8$$","$$temp_{C}=8-12$$","$$temp_{C}=12-16$$","$$temp_{C}=16-22$$","$$temp_{C}=22-30$$",'','','','',"$$temp_{C}=3-6$$","$$temp_{C}=6-12$$","$$temp_{C}=12-20$$","$$temp_{C}=20-26$$","$$temp_{C}=26-30$$",'','','','') #Minimum Annual Salinity
+data <-cbind(data, HSI)
+
+Formulas <- c("$$0+(0.0625*temp_{C})$$","$$-0.5+(0.125*temp_{C})$$","$$1+(0*temp_{C})$$","$$2.33+(-0.0833*temp_{C})$$","$$1.88+(-0.0625*temp_{C})$$",'','','','',"$$-0.2+(0.0667*temp_{C})$$","$$-0.4+(0.1*temp_{C})$$","$$0.5+(0.025*temp_{C})$$","$$1+(0*temp_{C})$$","$$3.2+(-0.1*temp_{C})$$","$$4.5+(-0.15*temp_{C})$$",'','','','') #Minimum Annual Salinity
+data <-cbind(data, Formulas)
+
+# assign to table
+final=as.table(data)
+knitr::kable(x = data, #the data for the table
+            caption = "Alewife Habitat Suitability Indices",
+            format = "markdown",
+            escape = FALSE,
+            booktabs = TRUE,
+            align = "c",
+            full_width = TRUE)  %>%   
+kable_styling(full_width = T) %>%
+column_spec(4,width_min = "20em") %>%
+column_spec(5,width_min = "20em")
 ```
 
 ```{r, echo= FALSE, include=TRUE, fig.align = "center", fig.cap="Spawning Adult Alewife Suitability Indices", out.width="80%"}
-par(mfrow=c(2, 3))
+p#Create data frame for suitability curves
+riparian0 <- data.frame(matrix(NA, nrow=5, ncol=6))
+colnames(riparian0) <- c("Ins.Buffer.Width.Avg.m", "Index.Instream", "Bio.Buffer.Width.Avg.m", "Index.Biodiversity", "Buffer.Width.Min.m", "Index.Connectivity")
 
-# Depth Suitability Index
-depth_values <- seq(0, 30, length.out = 100)
-depth_suitability <- ifelse(depth_values <= 2, 0.5, ifelse(depth_values <= 10, 1, 0))
-plot(depth_values, depth_suitability, type = "l", xlab = "Depth (m)", ylab = "Suitability Index")
-title("Depth Suitability Index")
+#Specify suitability curves
+riparian0$Ins.Buffer.Width.Avg.m <- c()
+riparian0$Index.Instream <- c()
+riparian0$Bio.Buffer.Width.Avg.m <- c()
+riparian0$Index.Biodiversity <- c()
+riparian0$Buffer.Width.Min.m <- c()
+riparian0$Index.Connectivity <- c()
 
-# Salinity Suitability Index
-salinity_values <- seq(0, 30, length.out = 100)
-salinity_suitability <- ifelse(salinity_values < 15, 1, ifelse(salinity_values <= 20, 0.5, 0))
-plot(salinity_values, salinity_suitability, type = "l", xlab = "Salinity (psu)", ylab = "Suitability Index")
-title("Salinity Suitability Index")
-
-# Temperature Suitability Index
-temperature_values <- seq(0, 30, length.out = 100)
-temperature_suitability <- ifelse(temperature_values >= 12 & temperature_values <= 16, 1, ifelse(temperature_values > 16 & temperature_values <= 29.7, 0.5, 0))
-plot(temperature_values, temperature_suitability, type = "l", xlab = "Temperature (°C)", ylab = "Suitability Index")
-title("Temperature Suitability Index")
-
-# Flow Velocity Suitability Index
-velocity_values <- seq(0, 1, length.out = 100)
-velocity_suitability <- ifelse(velocity_values >= 0.06 & velocity_values <= 0.16, 1, ifelse(velocity_values < 0.3, 0.5, 0))
-plot(velocity_values, velocity_suitability, type = "l", xlab = "Flow Velocity (m/s)", ylab = "Suitability Index")
-title("Flow Velocity Suitability Index")
-
-# Substrate Suitability Index
-substrate <- c("Hard (gravel or rock)", "Sandy", "Soft (other substrates)")
-substrate_suitability <- c(0.8, 0.6, 0.7)
-barplot(substrate_suitability, names.arg = substrate, xlab = "Substrate", ylab = "Suitability Index")
-title("Substrate Suitability Index")
 ```
+
