@@ -85,20 +85,20 @@ To address these shortcomings, updated models should encompass a more comprehens
 library(dplyr)
 library(knitr)
 library(kableExtra)
-data= matrix(c('A','','','','','B','C','D','E','A','','','','','B','C','D','E'), ncol=1, byrow=TRUE)
+data= matrix(c('A','','','','','B','C','D','E','A','','','','','','B','C','D','E'), ncol=1, byrow=TRUE)
 
 # specify the column names and row names of matrix
 colnames(data) = c('Variable')
-rownames(data) <- c('Spawning Adults','','','','','','','','','Nonmigratory Juvenile and Larvae','','','','','','','','')
+rownames(data) <- c('Spawning Adults','','','','','','','','','Nonmigratory Juvenile and Larvae','','','','','','','','','')
 
 ## create columns for table
 ##Parameters
-Parameter <- c('Temperature','','','','','Depth','Salinity','Flow Velocity','Substrate','Temperature','','','','','Depth','Salinity','Flow Velocity','Substrate')
+Parameter <- c('Temperature','','','','','Depth','Salinity','Flow Velocity','Substrate','Temperature','','','','','','Depth','Salinity','Flow Velocity','Substrate')
 
 data <- cbind(data, Parameter)
 
 #Equations
-HSI <- c("$$temp_{C}=0-8$$","$$temp_{C}=8-12$$","$$temp_{C}=12-16$$","$$temp_{C}=16-22$$","$$temp_{C}=22-30$$",'','','','',"$$temp_{C}=3-6$$","$$temp_{C}=6-12$$","$$temp_{C}=12-20$$","$$temp_{C}=20-26$$","$$temp_{C}=26-30$$",'','','','') #Minimum Annual Salinity
+HSI <- c("$$temp_{C}=0-8$$","$$temp_{C}=8-12$$","$$temp_{C}=12-16$$","$$temp_{C}=16-22$$","$$temp_{C}=22-30$$",'','','','',"$$temp_{C}=3-6$$","$$temp_{C}=6-12$$","$$temp_{C}=12-20$$","$$temp_{C}=20-22$$","$$temp_{C}=22-26$$","$$temp_{C}=26-30$$",'','','','') #Minimum Annual Salinity
 data <-cbind(data, HSI)
 
 Formulas <- c("$$0+(0.0625*temp_{C})$$","$$-0.5+(0.125*temp_{C})$$","$$1+(0*temp_{C})$$","$$2.33+(-0.0833*temp_{C})$$","$$1.88+(-0.0625*temp_{C})$$",'','','','',"$$-0.2+(0.0667*temp_{C})$$","$$-0.4+(0.1*temp_{C})$$","$$0.5+(0.025*temp_{C})$$","$$1+(0*temp_{C})$$","$$3.2+(-0.1*temp_{C})$$","$$4.5+(-0.15*temp_{C})$$",'','','','') #Minimum Annual Salinity
@@ -119,7 +119,7 @@ column_spec(5,width_min = "20em")
 ```
 
 ```{r, echo= FALSE, include=TRUE, fig.align = "center", fig.cap="Spawning Adult Alewife Suitability Indices", out.width="80%"}
-p#Create data frame for suitability curves
+#Create data frame for suitability curves
 riparian0 <- data.frame(matrix(NA, nrow=5, ncol=6))
 colnames(riparian0) <- c("Ins.Buffer.Width.Avg.m", "Index.Instream", "Bio.Buffer.Width.Avg.m", "Index.Biodiversity", "Buffer.Width.Min.m", "Index.Connectivity")
 
