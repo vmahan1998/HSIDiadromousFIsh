@@ -36,46 +36,6 @@
   \KOMAoptions{parskip=half}}
 \makeatother
 \usepackage{xcolor}
-\usepackage{color}
-\usepackage{fancyvrb}
-\newcommand{\VerbBar}{|}
-\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
-\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
-% Add ',fontsize=\small' for more characters per line
-\usepackage{framed}
-\definecolor{shadecolor}{RGB}{248,248,248}
-\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
-\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
-\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
-\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
-\newcommand{\BuiltInTok}[1]{#1}
-\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
-\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
-\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
-\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
-\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
-\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
-\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
-\newcommand{\ExtensionTok}[1]{#1}
-\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
-\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
-\newcommand{\ImportTok}[1]{#1}
-\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
-\newcommand{\NormalTok}[1]{#1}
-\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
-\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
-\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
-\newcommand{\RegionMarkerTok}[1]{#1}
-\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
-\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
-\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
-\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
-\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
-\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
 \usepackage{longtable,booktabs,array}
 \usepackage{calc} % for calculating minipage widths
 % Correct order of tables after \paragraph or \subparagraph
@@ -111,6 +71,20 @@
   \thm@postskip=\thm@preskip
 }
 \makeatother
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{colortbl}
+\usepackage{pdflscape}
+\usepackage{tabu}
+\usepackage{threeparttable}
+\usepackage{threeparttablex}
+\usepackage[normalem]{ulem}
+\usepackage{makecell}
+\usepackage{xcolor}
 \ifLuaTeX
   \usepackage{selnolig}  % disable illegal ligatures
 \fi
@@ -120,14 +94,14 @@
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
 \urlstyle{same}
 \hypersetup{
-  pdftitle={A Minimal Book Example},
-  pdfauthor={Yihui Xie},
+  pdftitle={Habitat Suitability Models for Diadromous Fish in the Northeastern United States},
+  pdfauthor={Vanessa Mahan M.S., Justin Stevens M.S., Dr.~Gayle Zydlewski, Dr.~Kyle McKay},
   hidelinks,
   pdfcreator={LaTeX via pandoc}}
 
-\title{A Minimal Book Example}
-\author{Yihui Xie}
-\date{2023-08-02}
+\title{Habitat Suitability Models for Diadromous Fish in the Northeastern United States}
+\author{Vanessa Mahan M.S., Justin Stevens M.S., Dr.~Gayle Zydlewski, Dr.~Kyle McKay}
+\date{2023-08-12}
 
 \begin{document}
 \maketitle
@@ -139,21 +113,11 @@
 \hypertarget{preface}{%
 \chapter{Preface}\label{preface}}
 
-This is a \emph{sample} book written in \textbf{Markdown}. You can use anything that Pandoc's Markdown supports, e.g., a math equation \(a^2 + b^2 = c^2\).
+\hypertarget{abstract}{%
+\section{Abstract}\label{abstract}}
 
-The \textbf{bookdown} package can be installed from CRAN or Github:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{install.packages}\NormalTok{(}\StringTok{"bookdown"}\NormalTok{)}
-\CommentTok{\# or the development version}
-\CommentTok{\# devtools::install\_github("rstudio/bookdown")}
-\end{Highlighting}
-\end{Shaded}
-
-Remember each Rmd file contains one and only one chapter, and a chapter is defined by the first-level heading \texttt{\#}.
-
-To compile this example to PDF, you need XeLaTeX. You are recommended to install TinyTeX (which includes XeLaTeX): \url{https://yihui.name/tinytex/}.
+\hypertarget{acknowledgments}{%
+\section{Acknowledgments}\label{acknowledgments}}
 
 \hypertarget{introduction}{%
 \chapter{Introduction}\label{introduction}}
@@ -266,45 +230,118 @@ To address these shortcomings, updated models should encompass a more comprehens
 \subsection{Figures \& Tables}\label{figures-tables}}
 
 \begin{verbatim}
+## Warning: package 'dplyr' was built under R version 4.1.3
+\end{verbatim}
+
+\begin{verbatim}
+## 
+## Attaching package: 'dplyr'
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:stats':
+## 
+##     filter, lag
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:base':
+## 
+##     intersect, setdiff, setequal, union
+\end{verbatim}
+
+\begin{verbatim}
 ## Warning: package 'knitr' was built under R version 4.1.3
 \end{verbatim}
 
+\begin{verbatim}
+## Warning: package 'kableExtra' was built under R version 4.1.3
+\end{verbatim}
+
+\begin{verbatim}
+## 
+## Attaching package: 'kableExtra'
+\end{verbatim}
+
+\begin{verbatim}
+## The following object is masked from 'package:dplyr':
+## 
+##     group_rows
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in kable_styling(., full_width = T): Please specify format in kable.
+## kableExtra can customize either HTML or LaTeX outputs. See
+## https://haozhu233.github.io/kableExtra/ for details.
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in column_spec(., 4, width_min = "20em"): Please specify format in
+## kable. kableExtra can customize either HTML or LaTeX outputs. See
+## https://haozhu233.github.io/kableExtra/ for details.
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in column_spec(., 5, width_min = "20em"): Please specify format in
+## kable. kableExtra can customize either HTML or LaTeX outputs. See
+## https://haozhu233.github.io/kableExtra/ for details.
+\end{verbatim}
+
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.1560}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.8440}}@{}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.3084}}
+  >{\centering\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.0935}}
+  >{\centering\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.1402}}
+  >{\centering\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.1869}}
+  >{\centering\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2710}}@{}}
+\caption{\label{tab:unnamed-chunk-2}Alewife Habitat Suitability Indices}\tabularnewline
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
-Index
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-Breakpoints
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Variable
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Parameter
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+HSI
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Formulas
+\end{minipage} \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Variable
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Parameter
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+HSI
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Formulas
 \end{minipage} \\
 \midrule\noalign{}
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
-a. Depth & Depth = 2 m: 0.5 \\
-Depth \textgreater{} 2 m: 1 & \\
-b. Salinity & Salinity \textless{} 15 psu: 1 \\
-Salinity = 20 psu: 0.5 & \\
-c.~Temperature & Temperature 12-16°C: 1 \\
-Temperature \textgreater{} 16°C \& = 29.7°C: 0.5 & \\
-d.~Flow Velocity & Velocity 0.06-0.16 m/s: 1 \\
-Velocity \textless{} 0.3 m/s: 0.5 & \\
-e. Substrate & Hard (gravel or rock): 0.8 \\
+Spawning Adults & A & Temperature & \(temp_{C}=0-8\) & \(0+(0.0625*temp_{C})\) \\
+& & & \(temp_{C}=8-12\) & \(-0.5+(0.125*temp_{C})\) \\
+& & & \(temp_{C}=12-16\) & \(1+(0*temp_{C})\) \\
+& & & \(temp_{C}=16-22\) & \(2.33+(-0.0833*temp_{C})\) \\
+& & & \(temp_{C}=22-30\) & \(1.88+(-0.0625*temp_{C})\) \\
+& B & Depth & & \\
+& C & Salinity & & \\
+& D & Flow Velocity & & \\
+& E & Substrate & & \\
+Nonmigratory Juvenile and Larvae & A & Temperature & \(temp_{C}=3-6\) & \(-0.2+(0.0667*temp_{C})\) \\
+& & & \(temp_{C}=6-12\) & \(-0.4+(0.1*temp_{C})\) \\
+& & & \(temp_{C}=12-20\) & \(0.5+(0.025*temp_{C})\) \\
+& & & \(temp_{C}=20-22\) & \(1+(0*temp_{C})\) \\
+& & & \(temp_{C}=22-26\) & \(3.2+(-0.1*temp_{C})\) \\
+& & & \(temp_{C}=26-30\) & \(4.5+(-0.15*temp_{C})\) \\
+& B & Depth & & \\
+& C & Salinity & & \\
+& D & Flow Velocity & & \\
+& E & Substrate & & \\
 \end{longtable}
-
-Sandy: 0.6
-Soft (other substrates): 0.7
-Suspended sediments: 0.9 \textbar{}
-
-\begin{figure}
-
-{\centering \includegraphics[width=0.8\linewidth]{bookdown-demo_files/figure-latex/unnamed-chunk-5-1} 
-
-}
-
-\caption{Spawning Adult Alewife Suitability Indices}\label{fig:unnamed-chunk-5}
-\end{figure}
 
 \hypertarget{american-eels}{%
 \chapter{American Eels}\label{american-eels}}
