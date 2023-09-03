@@ -1,8 +1,8 @@
 ---
 output:
-  pdf_document: default
-  html_document: default
   word_document: default
+  html_document: default
+  pdf_document: default
 ---
 # Alewives
 
@@ -60,6 +60,63 @@ Furthermore, the current models predominantly consider variables such as tempera
 To address these shortcomings, updated models should encompass a more comprehensive understanding of alewives' behavior, specifically acknowledging their use of estuarine and brackish habitats. These habitats serve as critical areas for alewives, exhibiting relatively high levels of habitat use [@mccartin_new_2019]. Incorporating these estuarine and brackish areas into management strategies is of paramount importance to ensure the conservation and successful management of the species. Notably, utilizing estuaries and brackish habitats for spawning may offer energetically favorable conditions for alewives, as it eliminates the need for them to acclimate to complete freshwater environments [@dimaggio_spawning_2015]. This recognition highlights the significance of incorporating these habitats into conservation efforts and management plans to safeguard the species and support their reproductive success.
 
 ### Spawning Adult Alewives
+```{r}
+library(dplyr)
+library(knitr)
+library(kableExtra)
+data= matrix(c('A','','','','','','','B','','','','','','C','','','','','D','','','','','E'), ncol=1, byrow=TRUE)
+
+# specify the column names and row names of matrix
+colnames(data) = c('Variable')
+rownames(data) <- c('Spawning Adults','','','','','','','','','','','','','','','','','','','','','','','')
+
+## create columns for table
+##Parameters
+Parameter <- c('Temperature','','','','','','','Depth','','','','','','Salinity','','','','','Flow Velocity','','','','','Substrate')
+
+data <- cbind(data, Parameter)
+
+#Equations
+Range <- c("$$temp_{C}=0-8$$","$$temp_{C}=8-12$$","$$temp_{C}=12-16$$","$$temp_{C}=16-22$$","$$temp_{C}=22-27$$","$$temp_{C}=27-30$$","$$temp_{C}=30+$$",
+           
+           "$$depth_{m}=0-2$$","$$depth_{m}=2-10$$", "$$depth_{m}=10-20$$","$$depth_{m}=20-50$$","$$depth_{m}=50-100$$","$$depth_{m}=100+$$",
+           
+           "$$sal_{psu}=0-0.5$$","$$sal_{psu}=0.5-5$$","$$sal_{psu}=5-15$$","$$sal_{psu}=15-20$$","$$sal_{psu}=20+$$",
+           
+           "$$vel_(m/s)=0-0.3$$","$$vel_(m/s)=0.3-1.5$$","$$vel_(m/s)=1.5-3.5$$","$$vel_(m/s)=3.5-4.5$$","$$vel_(m/s)=4.5+$$",
+           '') 
+data <-cbind(data, Range)
+
+HSI <- c(0.0,0.5,1.0,1.0,0.5,0.1,0.0,
+         0.0,0.5,1.0,0.5,0.5,0.5,
+         1.0,1.0,1.0,0.5,0,
+         1.0,1.0,0.5,0.3,0.0,
+         'Substrate')
+data <-cbind(data, HSI)
+
+Formulas <- c("$$0+(0.0625*temp_{C})$$","$$-0.5+(0.125*temp_{C})$$","$$1+(0*temp_{C})$$","$$2.33+(-0.0833*temp_{C})$$","$$2.26+(-0.0800*temp_{C})$$","$$1.00+(-0.0333*temp_{C})$$","$$0+(0*temp_{C})$$",
+              
+              "$$0+ (0.005*depth_{m})$$","$$0.38+(0.0625*depth_{m})$$","$$1.5+(-0.05*depth_{m})$$","$$0.5+ (0.0*depth_{m})$$","$$0.5+(0.0*depth_{m})$$","$$0.0+(0.005*depth_{m})$$",
+              
+              "$$1+(0*sal_{psu})$$","$$1+(0*sal_{psu})$$","$$1.25+(-0.05*sal_{psu})$$","$$2.0+(-0.1*sal_{psu})$$","$$0+(0*sal_{psu})$$",
+              
+              "$$1+(0*vel_{m/s})$$","$$1.13+(-0.4167*vel_{m/s})$$","$$0.65+(-0.1*vel_{m/s})$$","$$1.35+(-0.3*vel_{m/s})$$","$$0+(0*vel_{m/s})$$",
+              '') 
+data <-cbind(data, Formulas)
+
+# assign to table
+final=as.table(data)
+knitr::kable(x = data, #the data for the table
+            caption = "Habitat Suitability Indices for Spawning Adult Alewives",
+            format = "markdown",
+            escape = FALSE,
+            booktabs = TRUE,
+            align = "c",
+            full_width = TRUE)  %>%   
+kable_styling(full_width = T) %>%
+column_spec(4,width_min = "20em") %>%
+column_spec(5,width_min = "20em")
+```
 
 ### Juvenile Alewives
 
@@ -82,32 +139,30 @@ To address these shortcomings, updated models should encompass a more comprehens
 ```
 
 ```{r, echo= FALSE, include=TRUE, fig.align = "center", fig.cap="Alewife Suitability Indices", out.width="80%"}
-library(dplyr)
-library(knitr)
-library(kableExtra)
-data= matrix(c('A','','','','','B','C','D','E','A','','','','','','B','C','D','E'), ncol=1, byrow=TRUE)
+
+data= matrix(c('A','','','','','','B','C','D','E'), ncol=1, byrow=TRUE)
 
 # specify the column names and row names of matrix
 colnames(data) = c('Variable')
-rownames(data) <- c('Spawning Adults','','','','','','','','','Nonmigratory Juvenile and Larvae','','','','','','','','','')
+rownames(data) <- c('Nonmigratory Juvenile and Larvae','','','','','','','','','')
 
 ## create columns for table
 ##Parameters
-Parameter <- c('Temperature','','','','','Depth','Salinity','Flow Velocity','Substrate','Temperature','','','','','','Depth','Salinity','Flow Velocity','Substrate')
+Parameter <- c('Temperature','','','','','','Depth','Salinity','Flow Velocity','Substrate')
 
 data <- cbind(data, Parameter)
 
 #Equations
-HSI <- c("$$temp_{C}=0-8$$","$$temp_{C}=8-12$$","$$temp_{C}=12-16$$","$$temp_{C}=16-22$$","$$temp_{C}=22-30$$",'','','','',"$$temp_{C}=3-6$$","$$temp_{C}=6-12$$","$$temp_{C}=12-20$$","$$temp_{C}=20-22$$","$$temp_{C}=22-26$$","$$temp_{C}=26-30$$",'','','','') #Minimum Annual Salinity
+HSI <- c("$$temp_{C}=3-6$$","$$temp_{C}=6-12$$","$$temp_{C}=12-20$$","$$temp_{C}=20-22$$","$$temp_{C}=22-26$$","$$temp_{C}=26-30$$",'','','','','') #Minimum Annual Salinity
 data <-cbind(data, HSI)
 
-Formulas <- c("$$0+(0.0625*temp_{C})$$","$$-0.5+(0.125*temp_{C})$$","$$1+(0*temp_{C})$$","$$2.33+(-0.0833*temp_{C})$$","$$1.88+(-0.0625*temp_{C})$$",'','','','',"$$-0.2+(0.0667*temp_{C})$$","$$-0.4+(0.1*temp_{C})$$","$$0.5+(0.025*temp_{C})$$","$$1+(0*temp_{C})$$","$$3.2+(-0.1*temp_{C})$$","$$4.5+(-0.15*temp_{C})$$",'','','','') #Minimum Annual Salinity
+Formulas <- c("$$-0.2+(0.0667*temp_{C})$$","$$-0.4+(0.1*temp_{C})$$","$$0.5+(0.025*temp_{C})$$","$$1+(0*temp_{C})$$","$$3.2+(-0.1*temp_{C})$$","$$4.5+(-0.15*temp_{C})$$",'','','','','') #Minimum Annual Salinity
 data <-cbind(data, Formulas)
 
 # assign to table
 final=as.table(data)
 knitr::kable(x = data, #the data for the table
-            caption = "Alewife Habitat Suitability Indices",
+            caption = "Habitat Suitability Indices for Juvenile Alewife and Larvae",
             format = "markdown",
             escape = FALSE,
             booktabs = TRUE,
