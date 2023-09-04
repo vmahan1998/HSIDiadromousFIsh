@@ -1,12 +1,12 @@
 ---
 output:
-  word_document: default
   html_document: default
+  word_document: default
   pdf_document: default
 ---
 # Alewives
 
-This chapter aims to explore the habitat preferences and life cycle of alewives (Alosa pseudoharengus) in the northeastern United States. Alewives have faced significant declines, leading to their classification as a "species of concern" by the U.S. National Marine Fisheries Service [@nmfs_national_marine_fisheries_service_species_2009]. A combination of factors that have contributed to this decline, including deteriorating water quality, habitat loss, offshore bycatch/overfishing, increased predation, and dam construction [@kocovsky_linking_2008; @nmfs_national_marine_fisheries_service_species_2009; @bethoney_environmental_2014]. They have also been considered for inclusion in the U.S. Endangered Species List, as indicated in reports by the National Marine Fisheries Service in 2013 [@nmfs_national_marine_fisheries_service_endangered_2013].
+This chapter aims to explore the habitat preferences and life cycle of alewives (Alosa pseudoharengus) in the northeastern United States. Alewives have faced significant declines, leading to their classification as a "species of concern" by the U.S. National Marine Fisheries Service [@nmfs_national_marine_fisheries_service_species_2009]. A combination of factors that have contributed to this decline, including deteriorating water quality, habitat loss, offshore bycatch/overfishing, increased predation, and dam construction [@kocovsky_linking_2008; @nmfs_national_marine_fisheries_service_species_2009; @bethoney_environmental_2014; _Waldman & Quinn, 2022_]. They have also been considered for inclusion in the U.S. Endangered Species List, as indicated in reports by the National Marine Fisheries Service in 2013 [@nmfs_national_marine_fisheries_service_endangered_2013].
 
 Recent stock assessment reports reveal diverse trends in documented alewife runs over the last ten years, with some populations showing signs of stabilization or even growth [@asmfc_river_2017]. Additionally, in 2019, the National Marine Fisheries Service concluded that listing the alewife as threatened or endangered under the Endangered Species Act (ESA) was not warranted [@nmfs_national_marine_fisheries_service_not_2019].
 
@@ -20,16 +20,16 @@ Alewives exhibit a complex life cycle characterized by distinct stages and behav
 
 Upon arrival at the spawning grounds, adult alewives engage in immense spawning runs, where large aggregations gather to deposit their adhesive eggs over a variety of substrates [@oconnell_spawning_1997; @able_alewife_2020]. After spawning, both males and females return to the marine environment[@bigelow_fishes_1953; @bigelow_bigelow_2002].
 
-In the spawning habitat, the incubation period for eggs typically lasts for 3-7 days [@bigelow_fishes_1953; @bigelow_bigelow_2002]. Once hatched, the larvae begin their rapid migration downstream, eventually making their way towards estuary habitats where they will reside as they grow [@pardue_habitat_1983]. This estuary environment serves as a nursery for juvenile alewives until they eventually migrate to the sea [@laney_relationship_1997; @kosa_processes_2001]. It is noteworthy that the survival rate for larvae is relatively low, with only a small percentage successfully reaching the sea for each female alewife that entered the spawning grounds.  This percentage can be as low as 1% or even less, depending on the specific conditions of the ecosystem [@kissil_spawning_1974]. Similarly, mortality rates for migratory adults during a spawning season can reach as high as 90% in southern regions [@brady_part_2005]. 
+In the spawning habitat, the incubation period for eggs typically lasts for 3-6 days [@bigelow_fishes_1953; _(Munroe, 2000)_; @bigelow_bigelow_2002]. Once hatched, the larvae begin their rapid migration downstream, eventually making their way towards estuary habitats where they will reside as they grow [@pardue_habitat_1983]. This estuary environment serves as a nursery for juvenile alewives until they eventually migrate to the sea [@laney_relationship_1997; @kosa_processes_2001]. It is noteworthy that the survival rate for larvae is relatively low, with only a small percentage successfully reaching the sea for each female alewife that entered the spawning grounds.  This percentage can be as low as 1% or even less, depending on the specific conditions of the ecosystem [@kissil_spawning_1974]. Similarly, mortality rates for migratory adults during a spawning season can reach as high as 90% in southern regions [@brady_part_2005]. 
 
 ## Habitat Requirements 
 ### Spawning Adult Alewives 
 
 Spawning adult alewives exhibit specific preferences and requirements related to habitat characteristics. Their annual migration during spawning is energetically demanding and notable variations in behavior have been observed. Some studies report fasting during the day and extensive feeding at night, while others document refraining from eating until their return downstream to productive tidal habitats [@bigelow_fishes_1953; @janssen_feeding_1980; @bigelow_bigelow_2002]. The preferred habitats for spawning are lacustrine and fluvial environments rather than riverine [@reback_survey_2004; @frank_role_2011].
 
-Temperature preferences during spawning vary across studies, but there is a consensus that optimal temperatures for successful spawning fall within the range of 12 to 16 degrees Celsius [@brown_habitat_2000]. Suitable spawning temperatures broadly span from 8 to 22 degrees Celsius [@tyus_movements_1974; @pardue_habitat_1983; @collette_fishes_2003; @mather_assessing_2012] and spawning activity significantly diminishes above 27 degrees Celsius [@kissil_spawning_1974; @pardue_habitat_1983]. Deviations from the optimal temperature range can significantly impact spawning success and the timing of migration. Water temperature also plays a critical role in alewife abundance and movement patterns [@legett_daily_2021].
+Temperature preferences during spawning vary across studies, but there is a consensus that optimal temperatures for successful spawning fall within the range of 12 to 16 degrees Celsius [@brown_habitat_2000]. Suitable spawning temperatures broadly span from 12 to 22 degrees Celsius [@tyus_movements_1974; @pardue_habitat_1983; @collette_fishes_2003; @mather_assessing_2012] and during the migration inland, alewives tend to favor offshore locations where bottom temperatures are between 7 and 11 degrees Celsius _(Munroe, 2000)_. Spawning activity significantly diminishes above 27 degrees Celsius [@kissil_spawning_1974; @pardue_habitat_1983; @brown_habitat_2000]. Deviations from the optimal temperature range can significantly impact spawning success and the timing of migration. Water temperature also plays a critical role in alewife abundance and movement patterns [@legett_daily_2021].
 
-In terms of depth preferences, spawning adult alewives are generally known to favor depths ranging from Mean Low Tide (MLT) to 10 meters [@brown_habitat_2000], but recent field observations indicate that a significant proportion of alewives can be found in habitats as shallow as 2 meters [@mather_assessing_2012]. As such, alewives are capable of spawning in both shallow and deep water environments, highlighting their adaptability in selecting suitable spawning locations.
+In terms of depth preferences, spawning adult alewives are generally known to favor depths ranging from Mean Low Tide (MLT) to 10 meters [@brown_habitat_2000], but recent field observations indicate that a significant proportion of alewives can be found in habitats as shallow as 2 meters [@mather_assessing_2012]. Offshore alewives migrating inland have been documented to favor deeper depths (46-82 meters)_(Munroe, 2000)_. As such, alewives are capable of spawning in both shallow and deep water environments, highlighting their adaptability in selecting suitable spawning locations.
 
 Further, documented behavior of alewives challenges the conventional belief that anadromous species exclusively depend on freshwater environments for spawning. Alewives have been observed spawning in freshwater habitats with minimal salinity concentrations, revealing a preference for environments with salinity levels below 0.5 psu. However, they can tolerate salinity levels as high as 5 psu for successful spawning, as documented in the study conducted by @pardue_habitat_1983. More recently, @brown_habitat_2000 emphasizes an additional heightened preference for habitats with salinity concentrations below 15 psu, while concentrations surpassing 20 psu are deemed unsuitable for spawning adults. Additionally, field studies have documented that adult alewives engage in spawning activities across a diverse array of estuarine habitats with varying salinity levels, including ponds within coastal systems, pond-like regions within coastal rivers and streams, oxbows, eddies, backwaters, stream pools, and flooded swamps [@pardue_habitat_1983; @mullen_species_1986; @collette_fishes_2003; @walsh_early_2005].
 
@@ -41,7 +41,7 @@ Previous studies have presented conflicting information regarding the substrate 
 
 Premigratory juvenile alewives and larvae exhibit distinct habitat preferences and requirements, which play a crucial role in influencing their survival and growth. Several factors influence the abundance and successful development of these young alewives, including river flow, temperature, salinity, depth, and substrate [@pardue_habitat_1983; @walsh_early_2005; @tommasi_effect_2015]. The preferred habitats for juveniles and alewife larvae are also lacustrine and fluvial environments [@overton_spatial_2012].
 
-Temperature significantly influences the distribution, behavior, and early development of premigratory juvenile alewives and larvae [@tommasi_effect_2015]. Optimal temperatures for juvenile alewife development and larvae hatching fall within the range of 20°C to 23°C, with a broader suitability range for juvenile and larvae recruitment from 11°C to 27°C [@pardue_habitat_1983; @fay_alewifeblueback_1983; @klauda_alewife_1991; @brown_habitat_2000; @tommasi_effect_2015]. Juvenile river herring do not survive temperatures of 3°C or less and hatching success ceases entirely above 29.7°C [@otto_lethal_1976; @pardue_habitat_1983]. Maintaining water temperatures within these ranges is crucial for the successful development and overall health of premigratory juvenile alewives and larvae.
+Temperature significantly influences the distribution, behavior, and early development of premigratory juvenile alewives and larvae [@tommasi_effect_2015]. Optimal temperatures for juvenile alewife development and larvae hatching fall within the range of 17°C to 22°C, with a broader suitability range for juvenile and larvae recruitment from 11°C to 28°C [@pardue_habitat_1983; @fay_alewifeblueback_1983; @klauda_alewife_1991; @brown_habitat_2000; _(Munroe, 2000)_; @tommasi_effect_2015]. Juvenile river herring do not survive temperatures of 3°C or less and hatching success ceases entirely above 29.7°C [@otto_lethal_1976; @pardue_habitat_1983]. Maintaining water temperatures within these ranges is crucial for the successful development and overall health of premigratory juvenile alewives and larvae.
 
 The depth preferences of premigratory juvenile alewives differ from their adult counterparts, as juveniles exhibit a preference for depths ranging from 0 to 10 meters, with no habitat suitability observed beyond 20 meters [@brown_habitat_2000; @hook_annual_2008]. Research by @pardue_habitat_1983 further supports this finding, indicating that juveniles prefer depths between 0.5 to 5 meters. Lake Ontario research by @ingel_habitat_2013 found that early post-hatch larvae are abundant in depths less than 3 meters, while larger larvae occupy progressively deeper habitats. Similarly, observations in Nova Scotia's Margaree River indicate that alewife larvae predominantly reside in depths shallower than 2 meters, while juvenile abundance increases around five meters deep [@gibson_statistical_2003]. Overall, these field observations indicate that optimal depth for juvenile alewives and larvae is <5 meters. These shallow-water habitats provide protection from predators and access to food sources, facilitating growth before downstream migration.
 
@@ -57,10 +57,117 @@ The Alewives Habitat Suitability models, originally developed by @brown_habitat_
 
 Furthermore, the current models predominantly consider variables such as temperature, depth, and substrate, while disregarding other crucial factors that significantly influence alewives' habitat selection, including flow velocity and life stage differences. This limited scope results in incomplete assessments of habitat suitability. Moreover, the existing models fall short of encompassing the comprehensive spectrum of knowledge available for alewives, as inconsistencies and potential inaccuracies emerge from conflicting information concerning substrate, salinity, and depth preferences. These limitations undermine the models' effectiveness in predicting habitat suitability for alewives.
 
-To address these shortcomings, updated models should encompass a more comprehensive understanding of alewives' behavior, specifically acknowledging their use of estuarine and brackish habitats. These habitats serve as critical areas for alewives, exhibiting relatively high levels of habitat use [@mccartin_new_2019]. Incorporating these estuarine and brackish areas into management strategies is of paramount importance to ensure the conservation and successful management of the species. Notably, utilizing estuaries and brackish habitats for spawning may offer energetically favorable conditions for alewives, as it eliminates the need for them to acclimate to complete freshwater environments [@dimaggio_spawning_2015]. This recognition highlights the significance of incorporating these habitats into conservation efforts and management plans to safeguard the species and support their reproductive success.
+To address these shortcomings, updated models should encompass a more comprehensive understanding of alewives' behavior, specifically acknowledging their use of estuarine and brackish habitats. These habitats serve as critical areas for alewives, exhibiting relatively high levels of habitat use [@mccartin_new_2019; _(Stevens et al., 2021)_]. Incorporating these estuarine and brackish areas into management strategies is of paramount importance to ensure the conservation and successful management of the species. Notably, utilizing estuaries and brackish habitats for spawning may offer energetically favorable conditions for alewives, as it eliminates the need for them to acclimate to complete freshwater environments [@dimaggio_spawning_2015]. This recognition highlights the significance of incorporating these habitats into conservation efforts and management plans to safeguard the species and support their reproductive success.
 
 ### Spawning Adult Alewives
-```{r}
+
+The updated HSI model for spawning adult alewives introduces several noteworthy breakpoints that distinguish it from previous models. These breakpoints provide a more refined understanding of alewife habitat preferences and suitability.
+```{r, echo= FALSE, include=TRUE, fig.align = "center", fig.cap="Juvenile Alewife and Larvae Suitability Indices", out.width="80%"}
+# Load the ggplot2 library
+library(ggplot2)
+
+# Your data
+data <- data.frame(
+  Temperature_Range_C = c("0-8","8-12","12-16","16-22","22-27","27-30","30+",
+               "0-10","10-15","15-20","20-27","27+",
+               "0-8","8-10","10-12","12-16","16-18","18-20","20+"),
+  Suitability_Values = c(0.0,0.5,1.0,1.0,0.5,0.1,0.0,
+         0.0,0.5,1.0,0.5,0.0,
+         0.0,0.1,0.5,1.0,0.5,0.1,0.0),
+  Source = c("New Model", "New Model", "New Model", "New Model", "New Model", "New Model", "New Model",
+             "Pardue (1983)","Pardue (1983)","Pardue (1983)","Pardue (1983)","Pardue (1983)",
+                    "Brown et al. (2000)","Brown et al. (2000)","Brown et al. (2000)","Brown et al. (2000)","Brown et al. (2000)","Brown et al. (2000)","Brown et al. (2000)")
+)
+alewife_model <- data[1:7,]
+pardue_data <- data[8:11, ]
+brown_data <- data[12:17, ]
+
+#Note that range=0, which means that whiskers extend to the minimum and maximum values.
+jpeg(filename="Fig01.Adult_Alewife_Temp_HSI.jpeg", units="in", width=9, height=4, res=400)
+
+
+# Create the line plot
+ggplot(data, aes(x = Temperature_Range_C, y = Suitability_Values, group = Source, color = Source)) +
+  geom_line() +
+  geom_point() +
+  labs(
+    x = "Temperature Range (°C)",
+    y = "Suitability Values",
+    title = "Suitability Indices for Mean Daily Water Temperature: New Model"
+  ) +
+  theme_minimal()
+
+#Close jpeg creation
+invisible(dev.off())
+
+#Display figure
+knitr::include_graphics("Fig01.Adult_Alewife_Temp_HSI.jpeg")
+```
+```{r, echo= FALSE, include=TRUE, fig.align = "center", fig.cap="Juvenile Alewife and Larvae Suitability Indices", out.width="80%"}
+library(dplyr)
+library(knitr)
+library(kableExtra)
+data= matrix(c("0-8","8-12","12-16","16-22","22-27","27-30","30+",
+               "0-10","10-15","15-20","20-27","27+",
+               "0-8","8-10","10-12","12-16","16-18","18-20","20+"), ncol=1, byrow=TRUE)
+
+## create columns for table
+HSI <- c(0.0,0.5,1.0,1.0,0.5,0.1,0.0,
+         0.0,0.5,1.0,0.5,0.0,
+         0.0,0.1,0.5,1.0,0.5,0.1,0.0)
+data <-cbind(data, HSI)
+
+# specify the column names and row names of matrix
+colnames(data) = c('Temperature Range (C)', 'Suitability Values')
+rownames(data) <- c('New Model','','','','','','',
+                    "Pardue (1983)",'','','','',
+                    "Brown et al. (2000)",'','','','','','')
+
+# assign to table
+final=as.table(data)
+knitr::kable(x = data, #the data for the table
+            caption = "Suitability Indices for Mean Daily Water Temperature: Spawning Adult Alewives",
+            format = "markdown",
+            escape = FALSE,
+            booktabs = TRUE,
+            align = "c",
+            full_width = TRUE)  %>%   
+kable_styling(full_width = T) %>%
+column_spec(4,width_min = "20em") %>%
+column_spec(5,width_min = "20em")
+```
+
+In contrast to earlier models, the new HSI model delineates mean daily temperature preferences with greater accuracy. While previous models often employed broader temperature categories, the current model introduces finer distinctions. For instance, the new model identifies a specific range (12 to 16 degrees Celsius) where alewives exhibit peak suitability, providing a more accurate depiction of their thermal requirements for successful spawning. Moreover, the model highlights an upper mean daily temperature limit (27 degrees Celsius) where suitability drastically decreases, emphasizing the importance of maintaining suitable thermal conditions in spawning habitats.
+
+The updated model also offers more detailed depth preferences. Previous models might have employed generalized depth categories, but the new model introduces distinct depth ranges. This allows for a more refined assessment of habitat suitability. For instance, the new model specifies a peak suitability range (2 to 10 meters), reflecting the depth preferences of spawning adult alewives more accurately. Additionally, it identifies a depth threshold (100 meters) beyond which habitats are unsuitable for spawning, aligning with empirical observations.
+
+The new HSI model also refines the depiction of alewife salinity preferences. Unlike earlier models, which may have had narrow salinity categories, the updated model provides a more nuanced view. It pinpoints a specific range (0 to 5 psu) where alewives exhibit the highest suitability, aligning closely with empirical data. Moreover, it designates a clear upper limit (15 psu) where suitability declines significantly, indicating the importance of maintaining lower salinity levels in suitable habitats.
+
+The new model enhances our understanding of alewife flow velocity preferences. While previous models might have used less specific flow velocity categories, the updated model introduces distinct ranges. For example, it highlights a range (0 to 0.3 meters per second) where alewives demonstrate the highest suitability and extends moderate suitability to a broader range (0.3 to 1.5 meters per second), offering a more defined view of their flow velocity requirements. Additionally, it designates an upper threshold (4.5 meters per second) beyond which habitat would be considered unsuitable, in line with observed behaviors.
+
+Substrate preferences remain a crucial aspect of spawning habitat for alewives. Previous models have employed general substrate categories, while the new model emphasizes the significance of diverse substrate types, including sandy and rocky substrates, as well as seagrass beds.
+
+### Juvenile Alewives
+
+### Figures & Tables
+```{r, echo= FALSE, include=TRUE, fig.align = "center", fig.cap="Habitat Range of Alewive in the Northeast United States", out.width="80%"}
+# Required packages
+#library(ggplot2)
+#library(sf)
+
+# Read the alewife habitat data (replace "alewife_habitat.shp" with the actual file name and path)
+#alewife_habitat <- st_read("alewife_habitat.shp")
+
+# Plot the map
+#ggplot() +
+#  geom_sf(data = alewife_habitat, fill = "lightblue", color = "black") +
+#  coord_sf() +
+#  labs(title = "Alewife Habitat Distribution",
+#       subtitle = "Northeastern United States",
+#       x = "Longitude", y = "Latitude")
+```
+
+```{r, echo= FALSE, include=TRUE, fig.align = "center", fig.cap="Juvenile Alewife and Larvae Suitability Indices", out.width="80%"}
 library(dplyr)
 library(knitr)
 library(kableExtra)
@@ -116,26 +223,6 @@ knitr::kable(x = data, #the data for the table
 kable_styling(full_width = T) %>%
 column_spec(4,width_min = "20em") %>%
 column_spec(5,width_min = "20em")
-```
-
-### Juvenile Alewives
-
-### Figures & Tables
-```{r, echo= FALSE, include=TRUE, fig.align = "center", fig.cap="Habitat Range of Alewive in the Northeast United States", out.width="80%"}
-# Required packages
-#library(ggplot2)
-#library(sf)
-
-# Read the alewife habitat data (replace "alewife_habitat.shp" with the actual file name and path)
-#alewife_habitat <- st_read("alewife_habitat.shp")
-
-# Plot the map
-#ggplot() +
-#  geom_sf(data = alewife_habitat, fill = "lightblue", color = "black") +
-#  coord_sf() +
-#  labs(title = "Alewife Habitat Distribution",
-#       subtitle = "Northeastern United States",
-#       x = "Longitude", y = "Latitude")
 ```
 
 ```{r, echo= FALSE, include=TRUE, fig.align = "center", fig.cap="Alewife Suitability Indices", out.width="80%"}
