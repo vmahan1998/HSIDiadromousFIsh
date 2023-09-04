@@ -12,7 +12,7 @@ Recent stock assessment reports reveal diverse trends in documented alewife runs
 
 Alewives are widely distributed throughout the northeastern United States, thriving in freshwater rivers and estuaries along the Atlantic coast [@asmfc_fishery_1985]. Historically, alewives have undertaken extensive migrations to spawn in freshwater tidal systems, but limited information is available about estuary and marine movements during the juvenile and adult phases for alewives [@mccartin_new_2019].
 
-This chapter explores the favorable habitat conditions for spawning alewife adults, nonmigratory juveniles, and larvae, which are influenced by factors such as suitable spawning habitats, water quality conditions, and availability of appropriate food resources [@lynch_projected_2015].
+This chapter explores the favorable habitat conditions for spawning alewife adults, non-migratory juveniles, and larvae, which are influenced by factors such as suitable spawning habitats, water quality conditions, and availability of appropriate food resources [@lynch_projected_2015].
 
 ## Life cycle overview
 
@@ -37,7 +37,7 @@ Flow velocity is a crucial factor influencing the spawning of alewives [@tommasi
 
 Previous studies have presented conflicting information regarding the substrate preferences of spawning adult alewives, often stemming from the generalization of alewives with blueback herring as river herring. While _(Janssen & Luebke, 2004);_ suggests that alewives appear to prefer spawning over hard substrates such as cobble and rock, possibly due to the eggs' better adhesion to such surfaces, other documented observations provide evidence supporting a broader range of substrate utilization by spawning alewives [ _Fay et al., 1983;_ @killgore_distribution_1988; @oconnell_spawning_1997; @brown_habitat_2000; @able_alewife_2020]. Notably, @able_alewife_2020 documented observations of alewives spawning over sandy substrates, alongside the presence of eggs near hard substrates. Adult alewives spawn over a range of unconsolidated substrates, including small gravel, sand, vegetation, and other soft substrates [@pardue_habitat_1983; @oconnell_spawning_1997; @brown_habitat_2000]. Aside from their demonstrated dependence on soft substrates, spawning adult alewives also  exhibit a pronounced inclination toward habitats containing sub-aquatic vegetation [@killgore_distribution_1988; _Laney, 1997_]. Comprehending these substrate preferences is crucial to effectively manage and conserve the appropriate spawning habitats for alewives.
 
-### Premigratory Juvenile Alewives and Larvae
+### Non-migratory Juvenile Alewives and Larvae
 
 Premigratory juvenile alewives and larvae exhibit distinct habitat preferences and requirements, which play a crucial role in influencing their survival and growth. Several factors influence the abundance and successful development of these young alewives, including river flow, temperature, salinity, depth, and substrate [@pardue_habitat_1983; @walsh_early_2005; @tommasi_effect_2015]. The preferred habitats for juveniles and alewife larvae are also lacustrine and fluvial environments [@overton_spatial_2012].
 
@@ -245,7 +245,7 @@ data <-cbind(data, HSI)
 # specify the column names and row names of matrix
 colnames(data) = c('Predominant Substrate Type', 'Suitability Values')
 rownames(data) <- c('New Model','','','',
-                    "Pardue (1983)",'','','','',
+                    "Pardue (1983)",
                     "Brown et al. (2000)")
 
 # assign to table
@@ -266,7 +266,7 @@ Substrate preferences remain a crucial aspect of spawning habitat for alewives. 
 ### Juvenile Alewives
 
 ### Figures & Tables
-```{r, echo= FALSE, include=TRUE, fig.align = "center", fig.cap="Juvenile Alewife and Larvae Suitability Indices", out.width="80%"}
+```{r, echo= FALSE, include=TRUE, fig.align = "center", fig.cap="Spawning Adult Alewife Suitability Indices", out.width="80%"}
 library(dplyr)
 library(knitr)
 library(kableExtra)
@@ -291,9 +291,7 @@ Range <- c("$$temp_{C}=0-8$$","$$temp_{C}=8-12$$","$$temp_{C}=12-16$$","$$temp_{
            
            "$$vel_(m/s)=0-0.3$$","$$vel_(m/s)=0.3-1.5$$","$$vel_(m/s)=1.5-3.5$$","$$vel_(m/s)=3.5-4.5$$","$$vel_(m/s)=4.5+$$",
            
-           "$$soft$$","$$hard$$",
-           
-           "$$present$$","$$absent$$") 
+           "soft substrate","hard substrate","present SAV","absent SAV") 
 data <-cbind(data, Range)
 
 HSI <- c(0.0,0.5,1.0,1.0,0.5,0.1,0.0,
@@ -311,7 +309,7 @@ Formulas <- c("$$0+(0.0625*temp_{C})$$","$$-0.5+(0.125*temp_{C})$$","$$1+(0*temp
               "$$1+(0*sal_{psu})$$","$$1+(0*sal_{psu})$$","$$1.25+(-0.05*sal_{psu})$$","$$2.0+(-0.1*sal_{psu})$$","$$0+(0*sal_{psu})$$",
               
               "$$1+(0*vel_{m/s})$$","$$1.13+(-0.4167*vel_{m/s})$$","$$0.65+(-0.1*vel_{m/s})$$","$$1.35+(-0.3*vel_{m/s})$$","$$0+(0*vel_{m/s})$$",
-              '','','','') 
+              'NA','NA','NA','NA') 
 data <-cbind(data, Formulas)
 
 # assign to table
@@ -328,31 +326,55 @@ column_spec(4,width_min = "20em") %>%
 column_spec(5,width_min = "20em")
 ```
 
-```{r, echo= FALSE, include=TRUE, fig.align = "center", fig.cap="Alewife Suitability Indices", out.width="80%"}
+```{r, echo= FALSE, include=TRUE, fig.align = "center", fig.cap="Suitability Indices Non-migratory Juvenile Alewife and Larvae", out.width="80%"}
 
-data= matrix(c('A','','','','','','B','C','D','E'), ncol=1, byrow=TRUE)
+data= matrix(c('A','','','','','','B','','','','','','C','','','','','','','','','D','','','','','','','','E','','F',''), ncol=1, byrow=TRUE)
 
 # specify the column names and row names of matrix
 colnames(data) = c('Variable')
-rownames(data) <- c('Nonmigratory Juvenile and Larvae','','','','','','','','','')
+rownames(data) <- c('Non-migratory Juvenile and Larvae','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','')
 
 ## create columns for table
 ##Parameters
-Parameter <- c('Temperature','','','','','','Depth','Salinity','Flow Velocity','Substrate')
+Parameter <- c('Temperature','','','','','','Depth','','','','','','Salinity','','','','','','','','','Flow Velocity','','','','','','','','Substrate','','SAV','')
 
 data <- cbind(data, Parameter)
 
 #Equations
-HSI <- c("$$temp_{C}=3-6$$","$$temp_{C}=6-12$$","$$temp_{C}=12-20$$","$$temp_{C}=20-22$$","$$temp_{C}=22-26$$","$$temp_{C}=26-30$$",'','','','','') #Minimum Annual Salinity
+Range <- c("$$temp_{C}=3-11$$","$$temp_{C}=11-17$$","$$temp_{C}=17-22$$","$$temp_{C}=22-28$$","$$temp_{C}=28-29.7$$","$$temp_{C}=29.7+$$",
+         
+         "$$depth_{m}=0-0.5$$", "$$depth_{m}=0.5-3$$", "$$depth_{m}=3-5$$", "$$depth_{m}=3-10$$", "$$depth_{m}=10-20$$", "$$depth_{m}=20+$$",
+         
+         "$$sal_{psu}=0-0.5$$", "$$sal_{psu}=0.5-5$$", "$$sal_{psu}=5-10$$", "$$sal_{psu}=10-15$$", "$$sal_{psu}=15-20$$", "$$sal_{psu}=20-25$$", "$$sal_{psu}=25-30$$", "$$sal_{psu}=30-35$$", "$$sal_{psu}=35+$$",
+         
+         "$$vel_(m/s)=0-0.05$$", "$$vel_(m/s)=0.05-0.12$$", "$$vel_(m/s)=0.12-0.17$$", "$$vel_(m/s)=0.17-0.3$$", "$$vel_(m/s)=0.3-0.5$$", "$$vel_(m/s)=0.5-1.0$$","$$vel_(m/s)=1.0-1.5$$", "$$vel_(m/s)=1.5+$$",
+         
+         "soft substrate","hard substrate","present SAV","absent SAV") #Minimum Annual Salinity
+data <-cbind(data, Range)
+
+HSI <- c(0.0,0.5,1.0,1.0,0.3,0.0,
+         0.0,1.0,1.0,1.0,0.5,0.0,
+         0.3,1.0,1.0,1.0,1.0,0.5,0.3,0.1,0.0,
+         0.5,1.0,1.0,0.7,0.5,0.3,0.1,0.0,
+         0.5,1.0,
+         1.0,0.5)
 data <-cbind(data, HSI)
 
-Formulas <- c("$$-0.2+(0.0667*temp_{C})$$","$$-0.4+(0.1*temp_{C})$$","$$0.5+(0.025*temp_{C})$$","$$1+(0*temp_{C})$$","$$3.2+(-0.1*temp_{C})$$","$$4.5+(-0.15*temp_{C})$$",'','','','','') #Minimum Annual Salinity
+Formulas <- c("$$-0.19+(0.0625*temp_{C})$$","$$-0.42+(0.0833*temp_{C})$$","$$1+(0.0*temp_{C})$$","$$3.57+(-0.1167*temp_{C})$$","$$5.24+(-0.1765*temp_{C})$$","$$0+(0.0*temp_{C})$$",
+              
+              "$$0+ (2.0*depth_{m})$$", "$$1.0+ (0.0*depth_{m})$$", "$$1.0+ (0.0*depth_{m})$$", "$$1.5+ (-0.1*depth_{m})$$", "$$1.0+ (-0.05*depth_{m})$$","$$0.0+ (0.0*depth_{m})$$",
+              
+              "$$0.3+(1.4*sal_{psu})$$", "$$1.0+(0.0*sal_{psu})$$", "$$1.0+(0.0*sal_{psu})$$", "$$1.0+(0.0*sal_{psu})$$", "$$2.5+(-0.01*sal_{psu})$$", "$$1.3+(-0.04*sal_{psu})$$", "$$1.3+(-0.04*sal_{psu})$$", "$$0.7+(-0.02*sal_{psu})$$", "$$0.0+(0.0*sal_{psu})$$",
+              
+              "$$0.5 +(10*vel_{m/s})$$", "$$1.0 +(0.0*vel_{m/s})$$", "$$1.72 +(-6.0*vel_{m/s})$$", "$$0.96 +(-1.5385*vel_{m/s})$$", "$$0.8 +(-1.0*vel_{m/s})$$", "$$0.5 +(-0.4*vel_{m/s})$$", "$$0.3 +(-0.2*vel_{m/s})$$", "$$0 +(0*vel_{m/s})$$",
+              
+              'NA','NA','NA','NA') #Minimum Annual Salinity
 data <-cbind(data, Formulas)
 
 # assign to table
 final=as.table(data)
 knitr::kable(x = data, #the data for the table
-            caption = "Habitat Suitability Indices for Juvenile Alewife and Larvae",
+            caption = "Habitat Suitability Indices for Non-migratory Juvenile Alewife and Larvae",
             format = "markdown",
             escape = FALSE,
             booktabs = TRUE,
