@@ -265,12 +265,24 @@ Substrate preferences remain a crucial aspect of spawning habitat for alewives. 
 
 ### Juvenile Alewives
 
+To shed light on their habitat preferences and support effective conservation and management strategies, an in-depth Habitat Suitability Index (HSI) model has been established. This model meticulously dissects key parameters, including temperature, depth, salinity, flow velocity, and substrate, providing precise insights into the conditions necessary for their well-being.
+
+The temperature parameter in the HSI model for non-migratory juvenile alewife and larvae delineates mean daily temperature preferences with greater accuracy. It highlights a suitability range between 3 and 11 degrees Celsius, indicating their ability to thrive and over-winter in cooler waters. Optimal conditions are observed within the 17 to 22 degrees Celsius range, aligning closely with the temperature regimes of their native habitats. The model's upper limit at 29.7 degrees Celsius defines the critical importance of understanding suitable thermal conditions to support the growth and survival of juvenile alewives and larvae.
+
+Depth preferences play a crucial role in the habitat suitability of non-migratory juvenile alewife and larvae. The updated model offers distinct depth ranges, allowing for a refined assessment of their habitat requirements. Peak suitability between 2 and 10 meters is highlighted, signifying the affinity by juvenile alewife and larvae for relatively shallow waters. This depth preference aligns with their ecological niche, where access to food resources and shelter is optimal. Furthermore, the model designates a depth threshold at 20 meters, emphasizing that habitats beyond this depth are unsuitable for these life stages.
+
+Salinity is a vital factor in the habitat suitability of non-migratory juvenile alewife and larvae, and the HSI model provides detailed insights. It highlights a specific range of 0.5 to 15 (psu) where these life stages exhibit the highest suitability. This preference closely corresponds to their native estuarine and freshwater habitats. Additionally, the model sets a clear upper limit at 30 psu, emphasizing the moderate effects of higher salinity levels on their suitability. Maintaining brackish conditions in suitable habitats is essential for the successful development of juvenile alewives and larvae.
+
+The new model defines Flow velocity preferences, which are essential for the habitat suitability of non-migratory juvenile alewife and larvae, and the HSI model provides specific velocity ranges. It designates a suitability range between 0.05 and 0.12 meters per second, highlighting their preference for relatively calm waters. Moderate suitability extends to a broader range of 0.0 to 0.3 meters per second, reflecting their adaptability to slightly faster currents. Beyond 1.5 meters per second, the model sets an upper threshold, indicating that habitats with higher flow velocities would be considered unsuitable. Understanding these flow velocity preferences is crucial for conserving habitats that support these life stages.
+
+The updated model also distinguishes between soft and hard substrate types, recognizing their significance. Soft substrates are associated with moderate suitability, while hard substrates are considered highly suitable. Additionally, the model acknowledges the presence or absence of sub-aquatic vegetation (SAV) as a parameter, recognizing the ecological importance of vegetation in these habitats. This comprehensive approach to substrate preferences ensures that a variety of habitat types is considered when managing and conserving suitable environments for non-migratory juvenile alewife and larvae.
+
 ### Figures & Tables
 ```{r, echo= FALSE, include=TRUE, fig.align = "center", fig.cap="Spawning Adult Alewife Suitability Indices", out.width="80%"}
 library(dplyr)
 library(knitr)
 library(kableExtra)
-data= matrix(c('A','','','','','','','B','','','','','','C','','','','','D','','','','','E','','F',''), ncol=1, byrow=TRUE)
+data= matrix(c('A','','','','','','','B','','','','','','C','','','','','D','','','','','E','','',''), ncol=1, byrow=TRUE)
 
 # specify the column names and row names of matrix
 colnames(data) = c('Variable')
@@ -278,7 +290,7 @@ rownames(data) <- c('Spawning Adults','','','','','','','','','','','','','','',
 
 ## create columns for table
 ##Parameters
-Parameter <- c('Temperature','','','','','','','Depth','','','','','','Salinity','','','','','Flow Velocity','','','','','Substrate','','SAV','')
+Parameter <- c('Temperature','','','','','','','Depth','','','','','','Salinity','','','','','Flow Velocity','','','','','Substrate','','','')
 
 data <- cbind(data, Parameter)
 
@@ -328,7 +340,7 @@ column_spec(5,width_min = "20em")
 
 ```{r, echo= FALSE, include=TRUE, fig.align = "center", fig.cap="Suitability Indices Non-migratory Juvenile Alewife and Larvae", out.width="80%"}
 
-data= matrix(c('A','','','','','','B','','','','','','C','','','','','','','','','D','','','','','','','','E','','F',''), ncol=1, byrow=TRUE)
+data= matrix(c('A','','','','','','B','','','','','','C','','','','','','','','','D','','','','','','','','E','','',''), ncol=1, byrow=TRUE)
 
 # specify the column names and row names of matrix
 colnames(data) = c('Variable')
@@ -336,7 +348,7 @@ rownames(data) <- c('Non-migratory Juvenile and Larvae','','','','','','','','',
 
 ## create columns for table
 ##Parameters
-Parameter <- c('Temperature','','','','','','Depth','','','','','','Salinity','','','','','','','','','Flow Velocity','','','','','','','','Substrate','','SAV','')
+Parameter <- c('Temperature','','','','','','Depth','','','','','','Salinity','','','','','','','','','Flow Velocity','','','','','','','','Substrate','','','')
 
 data <- cbind(data, Parameter)
 
