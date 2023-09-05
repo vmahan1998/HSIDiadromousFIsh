@@ -400,7 +400,7 @@ data <-cbind(data, HSI)
 
 # specify the column names and row names of matrix
 colnames(data) = c('Salinity Range (psu)', 'Suitability Values')
-rownames(data) <- c('New Model','','','','',
+rownames(data) <- c('New Model','','','','','','','','',
                     "Pardue (1983)",'','','',
                     "Brown et al. (2000)",'','','','','','')
 
