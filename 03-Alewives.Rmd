@@ -21,7 +21,6 @@ Alewives exhibit a complex life cycle characterized by distinct stages and behav
 Upon arrival at the spawning grounds, adult alewives engage in immense spawning runs, where large aggregations gather to deposit their adhesive eggs over a variety of substrates [@oconnell_spawning_1997; @able_alewife_2020]. After spawning, both males and females return to the marine environment[@bigelow_fishes_1953; @bigelow_bigelow_2002].
 
 In the spawning habitat, the incubation period for eggs typically lasts for 3-6 days [@bigelow_fishes_1953; _(Munroe, 2000)_; @bigelow_bigelow_2002]. Once hatched, the larvae begin their rapid migration downstream, eventually making their way towards estuary habitats where they will reside as they grow [@pardue_habitat_1983]. This estuary environment serves as a nursery for juvenile alewives until they eventually migrate to the sea [@laney_relationship_1997; @kosa_processes_2001]. It is noteworthy that the survival rate for larvae is relatively low, with only a small percentage successfully reaching the sea for each female alewife that entered the spawning grounds. This percentage can be as low as 1% or even less, depending on the specific conditions of the ecosystem [@kissil_spawning_1974]. Similarly, mortality rates for migratory adults during a spawning season can reach as high as 90% in southern regions [@brady_part_2005]. 
-
 ## Habitat Requirements 
 ### Spawning Adult Alewives 
 
