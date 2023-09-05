@@ -69,14 +69,14 @@ library(ggplot2)
 # Your data
 data <- data.frame(
   Temperature_Range_C = c("0-8","8-12","12-16","16-22","22-27","27-30","30+",
-               "0-10","10-15","15-20","20-27","27+",
-               "0-8","8-10","10-12","12-16","16-18","18-20","20+"),
+               "0-8","8-18","18-24","24-30","30+",
+               "0-8","8-10","10-12","12-16","16-18","18-20","20-30","30+"),
   Suitability_Values = c(0.0,0.5,1.0,1.0,0.5,0.1,0.0,
-         0.0,0.5,1.0,0.5,0.0,
-         0.0,0.1,0.5,1.0,0.5,0.1,0.0),
+         0.0,1.0,0.5,0.1,0.0,
+         0.0,0.1,0.5,1.0,0.5,0.1,0.0,0.0),
   Source = c("New Model", "New Model", "New Model", "New Model", "New Model", "New Model", "New Model",
              "Pardue (1983)","Pardue (1983)","Pardue (1983)","Pardue (1983)","Pardue (1983)",
-                    "Brown et al. (2000)","Brown et al. (2000)","Brown et al. (2000)","Brown et al. (2000)","Brown et al. (2000)","Brown et al. (2000)","Brown et al. (2000)")
+                    "Brown et al. (2000)","Brown et al. (2000)","Brown et al. (2000)","Brown et al. (2000)","Brown et al. (2000)","Brown et al. (2000)""Brown et al. (2000)")
 )
 alewife_model <- data[1:7,]
 pardue_data <- data[8:11, ]
@@ -283,8 +283,8 @@ library(ggplot2)
 # Your data
 data <- data.frame(
   Temperature_Range_C = c("3-11","11-17","17-22","22-28","28-29.7","29.7+",
-               "0-10","10-15","15-20","20-27","27+",
-               "0-8","8-10","10-12","12-16","16-18","18-20","20+"),
+               "0-10","10-18","18-30","30+",
+               "0-6","6-10","10-12","12-22","22-24","24-30","30+"),
   Suitability_Values = c(0.0,0.5,1.0,1.0,0.3,0.0,
          0.0,0.5,1.0,0.5,0.0,
          0.0,0.1,0.5,1.0,0.5,0.1,0.0),
@@ -323,19 +323,19 @@ library(dplyr)
 library(knitr)
 library(kableExtra)
 data= matrix(c("3-11","11-17","17-22","22-28","28-29.7","29.7+",
-               "0-10","10-15","15-20","20-27","27+",
-               "0-8","8-10","10-12","12-16","16-18","18-20","20+"), ncol=1, byrow=TRUE)
+               "0-10","10-18","18-30","30+",
+               "0-6","6-10","10-12","12-22","22-24","24-30","30+"), ncol=1, byrow=TRUE)
 
 ## create columns for table
 HSI <- c(0.0,0.5,1.0,1.0,0.3,0.0,
-         0.0,0.5,1.0,0.5,0.0,
+         0.5,1.0,0.5,0.0,
          0.0,0.1,0.5,1.0,0.5,0.1,0.0)
 data <-cbind(data, HSI)
 
 # specify the column names and row names of matrix
 colnames(data) = c('Temperature Range (C)', 'Suitability Values')
 rownames(data) <- c('New Model','','','','','',
-                    "Pardue (1983)",'','','','',
+                    "Pardue (1983)",'','','',
                     "Brown et al. (2000)",'','','','','','')
 
 # assign to table
@@ -355,19 +355,19 @@ column_spec(5,width_min = "20em")
 The temperature parameter in the HSI model for non-migratory juvenile alewife and larvae delineates mean daily temperature preferences with greater accuracy. It highlights a suitability range between 3 and 11 degrees Celsius, indicating their ability to thrive and over-winter in cooler waters. Optimal conditions are observed within the 17 to 22 degrees Celsius range, aligning closely with the temperature regimes of their native habitats. The model's upper limit at 29.7 degrees Celsius defines the critical importance of understanding suitable thermal conditions to support the growth and survival of juvenile alewives and larvae.
 
 ```{r, echo= FALSE, include=TRUE, fig.align = "center", fig.cap="Non-Migratory Juvenile Alewife and Larvae Depth Suitability Indices", out.width="80%"}
-data= matrix(c("0-0.5", "0.5-3", "3-5", "3-10", "10-20", "20+",
+data= matrix(c("0-0.5", "0.5-3", "3-5", "3-10", "10-20", "20-50","50+",
                "NA",
                "0-MLT","MLT-3","3-10","10-20","20-50","50-100"), ncol=1, byrow=TRUE)
 
 ## create columns for table
-HSI <- c(0.0,1.0,1.0,1.0,0.5,0.0,
+HSI <- c(0.0,1.0,1.0,1.0,0.5,0.1,0.0,
          "NA",
          0.5,1.0,1.0,0.1,0.0,0.0)
 data <-cbind(data, HSI)
 
 # specify the column names and row names of matrix
 colnames(data) = c('Depth Range (meters)', 'Suitability Values')
-rownames(data) <- c('New Model','','','','','',
+rownames(data) <- c('New Model','','','','','','',
                     "Pardue (1983)",
                     "Brown et al. (2000)",'','','','','')
 
@@ -395,7 +395,7 @@ data= matrix(c("0-0.5", "0.5-5", "5-10", "10-15", "15-20", "20-25", "25-30", "30
 ## create columns for table
 HSI <- c(0.5,1.0,1.0,1.0,1.0,0.5,0.3,0.1,0.0,
          0.86,0.0,0.0,0.0,
-         1.0,1.0,1.0,1.0,0.5,0.1,0.0)
+         0.1,0.1,0.5,1.0,1.0,1.0,1.0)
 data <-cbind(data, HSI)
 
 # specify the column names and row names of matrix
@@ -549,22 +549,22 @@ column_spec(5,width_min = "20em")
 
 ```{r, echo= FALSE, include=TRUE, fig.align = "center", fig.cap="Suitability Indices Non-migratory Juvenile Alewife and Larvae", out.width="80%"}
 
-data= matrix(c('A','','','','','','B','','','','','','C','','','','','','','','','D','','','','','','','','E','','',''), ncol=1, byrow=TRUE)
+data= matrix(c('A','','','','','','B','','','','','','','C','','','','','','','','','D','','','','','','','','E','','',''), ncol=1, byrow=TRUE)
 
 # specify the column names and row names of matrix
 colnames(data) = c('Variable')
-rownames(data) <- c('Non-migratory Juvenile and Larvae','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','')
+rownames(data) <- c('Non-migratory Juvenile and Larvae','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','')
 
 ## create columns for table
 ##Parameters
-Parameter <- c('Temperature','','','','','','Depth','','','','','','Salinity','','','','','','','','','Flow Velocity','','','','','','','','Substrate','','','')
+Parameter <- c('Temperature','','','','','','Depth','','','','','','','Salinity','','','','','','','','','Flow Velocity','','','','','','','','Substrate','','','')
 
 data <- cbind(data, Parameter)
 
 #Equations
 Range <- c("$$temp_{C}=3-11$$","$$temp_{C}=11-17$$","$$temp_{C}=17-22$$","$$temp_{C}=22-28$$","$$temp_{C}=28-29.7$$","$$temp_{C}=29.7+$$",
          
-         "$$depth_{m}=0-0.5$$", "$$depth_{m}=0.5-3$$", "$$depth_{m}=3-5$$", "$$depth_{m}=3-10$$", "$$depth_{m}=10-20$$", "$$depth_{m}=20+$$",
+         "$$depth_{m}=0-0.5$$", "$$depth_{m}=0.5-3$$", "$$depth_{m}=3-5$$", "$$depth_{m}=3-10$$", "$$depth_{m}=10-20$$", "$$depth_{m}=20-50$$", "$$depth_{m}=50+$$",
          
          "$$sal_{psu}=0-0.5$$", "$$sal_{psu}=0.5-5$$", "$$sal_{psu}=5-10$$", "$$sal_{psu}=10-15$$", "$$sal_{psu}=15-20$$", "$$sal_{psu}=20-25$$", "$$sal_{psu}=25-30$$", "$$sal_{psu}=30-35$$", "$$sal_{psu}=35+$$",
          
@@ -574,7 +574,7 @@ Range <- c("$$temp_{C}=3-11$$","$$temp_{C}=11-17$$","$$temp_{C}=17-22$$","$$temp
 data <-cbind(data, Range)
 
 HSI <- c(0.0,0.5,1.0,1.0,0.3,0.0,
-         0.0,1.0,1.0,1.0,0.5,0.0,
+         0.0,1.0,1.0,1.0,0.5,0.1,0.0,
          0.5,1.0,1.0,1.0,1.0,0.5,0.3,0.1,0.0,
          0.5,1.0,1.0,0.7,0.5,0.3,0.1,0.0,
          0.5,1.0,
@@ -583,7 +583,7 @@ data <-cbind(data, HSI)
 
 Formulas <- c("$$-0.19+(0.0625*temp_{C})$$","$$-0.42+(0.0833*temp_{C})$$","$$1+(0.0*temp_{C})$$","$$3.57+(-0.1167*temp_{C})$$","$$5.24+(-0.1765*temp_{C})$$","$$0+(0.0*temp_{C})$$",
               
-              "$$0+ (2.0*depth_{m})$$", "$$1.0+ (0.0*depth_{m})$$", "$$1.0+ (0.0*depth_{m})$$", "$$1.5+ (-0.1*depth_{m})$$", "$$1.0+ (-0.05*depth_{m})$$","$$0.0+ (0.0*depth_{m})$$",
+              "$$0+ (2.0*depth_{m})$$", "$$1.0+ (0.0*depth_{m})$$", "$$1.0+ (0.0*depth_{m})$$", "$$1.5+ (-0.1*depth_{m})$$", "$$0.9+ (-0.04*depth_{m})$$","$$0.17+ (-0.0033*depth_{m})$$","$$0.0+ (0.0*depth_{m})$$",
               
               "$$0.5+(1.0*sal_{psu})$$", "$$1.0+(0.0*sal_{psu})$$", "$$1.0+(0.0*sal_{psu})$$", "$$1.0+(0.0*sal_{psu})$$", "$$2.5+(-0.01*sal_{psu})$$", "$$1.3+(-0.04*sal_{psu})$$", "$$1.3+(-0.04*sal_{psu})$$", "$$0.7+(-0.02*sal_{psu})$$", "$$0.0+(0.0*sal_{psu})$$",
               
