@@ -76,7 +76,7 @@ data <- data.frame(
          0.0,0.1,0.5,1.0,0.5,0.1,0.0,0.0),
   Source = c("New Model", "New Model", "New Model", "New Model", "New Model", "New Model", "New Model",
              "Pardue (1983)","Pardue (1983)","Pardue (1983)","Pardue (1983)","Pardue (1983)",
-                    "Brown et al. (2000)","Brown et al. (2000)","Brown et al. (2000)","Brown et al. (2000)","Brown et al. (2000)","Brown et al. (2000)""Brown et al. (2000)")
+                    "Brown et al. (2000)","Brown et al. (2000)","Brown et al. (2000)","Brown et al. (2000)","Brown et al. (2000)","Brown et al. (2000)","Brown et al. (2000)","Brown et al. (2000)")
 )
 alewife_model <- data[1:7,]
 pardue_data <- data[8:11, ]
@@ -286,15 +286,15 @@ data <- data.frame(
                "0-10","10-18","18-30","30+",
                "0-6","6-10","10-12","12-22","22-24","24-30","30+"),
   Suitability_Values = c(0.0,0.5,1.0,1.0,0.3,0.0,
-         0.0,0.5,1.0,0.5,0.0,
+         0.5,1.0,0.5,0.0,
          0.0,0.1,0.5,1.0,0.5,0.1,0.0),
   Source = c("New Model", "New Model", "New Model", "New Model", "New Model", "New Model",
-             "Pardue (1983)","Pardue (1983)","Pardue (1983)","Pardue (1983)","Pardue (1983)",
+             "Pardue (1983)","Pardue (1983)","Pardue (1983)","Pardue (1983)",
                     "Brown et al. (2000)","Brown et al. (2000)","Brown et al. (2000)","Brown et al. (2000)","Brown et al. (2000)","Brown et al. (2000)","Brown et al. (2000)")
 )
 alewife_model <- data[1:6,]
 pardue_data <- data[7:11, ]
-brown_data <- data[12:17, ]
+brown_data <- data[12:18, ]
 
 #Note that range=0, which means that whiskers extend to the minimum and maximum values.
 jpeg(filename="Fig01.juv_Alewife_Temp_HSI.jpeg", units="in", width=9, height=4, res=400)
