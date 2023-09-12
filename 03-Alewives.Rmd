@@ -1,8 +1,8 @@
 ---
 output:
-  html_document: default
   word_document: default
   pdf_document: default
+  html_document: default
 ---
 # Alewives
 
@@ -21,7 +21,9 @@ Alewives exhibit a complex life cycle characterized by distinct stages and behav
 Upon arrival at the spawning grounds, adult alewives engage in immense spawning runs, where large aggregations gather to deposit their adhesive eggs over a variety of substrates [@oconnell_spawning_1997; @able_alewife_2020]. After spawning, both males and females return to the marine environment[@bigelow_fishes_1953; @bigelow_bigelow_2002].
 
 In the spawning habitat, the incubation period for eggs typically lasts for 3-6 days [@bigelow_fishes_1953; @munroe_overview_2000; @bigelow_bigelow_2002]. Once hatched, the larvae begin their rapid migration downstream, eventually making their way towards estuary habitats where they will reside as they grow [@pardue_habitat_1983]. This estuary environment serves as a nursery for juvenile alewives until they eventually migrate to the sea [@laney_relationship_1997; @kosa_processes_2001]. It is noteworthy that the survival rate for larvae is relatively low, with only a small percentage successfully reaching the sea for each female alewife that entered the spawning grounds. This percentage can be as low as 1% or even less, depending on the specific conditions of the ecosystem [@kissil_spawning_1974]. Similarly, mortality rates for migratory adults during a spawning season can reach as high as 90% in southern regions [@brady_part_2005]. 
+
 ## Habitat Requirements 
+
 ### Spawning Adult Alewives 
 
 Spawning adult alewives exhibit specific preferences and requirements related to habitat characteristics. Their annual migration during spawning is energetically demanding and notable variations in behavior have been observed. Some studies report fasting during the day and extensive feeding at night, while others document refraining from eating until their return downstream to productive tidal habitats [@bigelow_fishes_1953; @janssen_feeding_1980; @bigelow_bigelow_2002]. The preferred habitats for spawning are lacustrine and fluvial environments rather than riverine [@reback_survey_2004; @frank_role_2011].
@@ -65,7 +67,7 @@ The updated HSI model for spawning adult alewives introduces several noteworthy 
 ```{r, echo= FALSE, include=TRUE, fig.align = "center", fig.cap="Spawning Adult Alewife Temperature Suitability Indices", out.width="80%"}
 # Load the ggplot2 library
 library(ggplot2)
-
+library(gridExtra)
 # Your data
 data <- data.frame(
   Temperature_Range_C = c("0-8","8-12","12-16","16-22","22-27","27-30","30+",
@@ -79,24 +81,45 @@ data <- data.frame(
                     "Brown et al. (2000)","Brown et al. (2000)","Brown et al. (2000)","Brown et al. (2000)","Brown et al. (2000)","Brown et al. (2000)","Brown et al. (2000)","Brown et al. (2000)")
 )
 alewife_model <- data[1:7,]
-pardue_data <- data[8:11, ]
-brown_data <- data[12:17, ]
+pardue_data <- data[8:12, ]
+brown_data <- data[13:18, ]
 
 #Note that range=0, which means that whiskers extend to the minimum and maximum values.
 jpeg(filename="Fig01.Adult_Alewife_Temp_HSI.jpeg", units="in", width=9, height=4, res=400)
+par(mfrow=c(3,1))
 
-
-# Create the line plot
-ggplot(data, aes(x = Temperature_Range_C, y = Suitability_Values, group = Source, color = Source)) +
+# Create separate plots for each model
+plot_alewife <- ggplot(alewife_model, aes(x = Temperature_Range_C, y = Suitability_Values, group = Source, color = Source)) +
   geom_line() +
   geom_point() +
   labs(
     x = "Temperature Range (°C)",
     y = "Suitability Values",
-    title = "Suitability Indices for Mean Daily Water Temperature: New Model"
+    title = "Suitability Indices for Mean Daily Water Temperature: Mahan Model"
   ) +
   theme_minimal()
 
+plot_pardue <- ggplot(pardue_data, aes(x = Temperature_Range_C, y = Suitability_Values, group = Source, color = Source)) +
+  geom_line() +
+  geom_point() +
+  labs(
+    x = "Temperature Range (°C)",
+    y = "Suitability Values",
+    title = "Suitability Indices for Mean Daily Water Temperature: Pardue Data"
+  ) +
+  theme_minimal()
+
+plot_brown <- ggplot(brown_data, aes(x = Temperature_Range_C, y = Suitability_Values, group = Source, color = Source)) +
+  geom_line() +
+  geom_point() +
+  labs(
+    x = "Temperature Range (°C)",
+    y = "Suitability Values",
+    title = "Suitability Indices for Mean Daily Water Temperature: Brown Data"
+  ) +
+  theme_minimal()
+
+grid.arrange(arrangeGrob(plot_pardue, plot_brown, plot_alewife, nrow = 3), top="Comparing Suitability Indices for Temperature")
 #Close jpeg creation
 invisible(dev.off())
 
@@ -282,9 +305,9 @@ library(ggplot2)
 
 # Your data
 data <- data.frame(
-  Temperature_Range_C = c("3-11","11-17","17-22","22-28","28-29.7","29.7+",
-               "0-10","10-18","18-30","30+",
-               "0-6","6-10","10-12","12-22","22-24","24-30","30+"),
+  Temperature_Range_C = c(3,11,17,22,28,29.7,
+               0,10,18,30,
+               0,6,10,12,22,24,30),
   Suitability_Values = c(0.0,0.5,1.0,1.0,0.3,0.0,
          0.5,1.0,0.5,0.0,
          0.0,0.1,0.5,1.0,0.5,0.1,0.0),
@@ -293,29 +316,50 @@ data <- data.frame(
                     "Brown et al. (2000)","Brown et al. (2000)","Brown et al. (2000)","Brown et al. (2000)","Brown et al. (2000)","Brown et al. (2000)","Brown et al. (2000)")
 )
 alewife_model <- data[1:6,]
-pardue_data <- data[7:11, ]
-brown_data <- data[12:18, ]
+pardue_data <- data[7:10, ]
+brown_data <- data[11:17, ]
 
 #Note that range=0, which means that whiskers extend to the minimum and maximum values.
-jpeg(filename="Fig01.juv_Alewife_Temp_HSI.jpeg", units="in", width=9, height=4, res=400)
+jpeg(filename="Fig02.Juv_Alewife_Temp_HSI.jpeg", units="in", width=9, height=4, res=400)
+par(mfrow=c(3,1))
 
-
-# Create the line plot
-ggplot(data, aes(x = Temperature_Range_C, y = Suitability_Values, group = Source, color = Source)) +
+# Create separate plots for each model
+plot_alewife <- ggplot(alewife_model, aes(x = Temperature_Range_C, y = Suitability_Values, group = Source, color = Source)) +
   geom_line() +
   geom_point() +
   labs(
     x = "Temperature Range (°C)",
     y = "Suitability Values",
-    title = "Suitability Indices for Mean Daily Water Temperature: New Model"
+    title = "Suitability Indices for Average Depth: Mahan Model"
   ) +
   theme_minimal()
 
+plot_pardue <- ggplot(pardue_data, aes(x = Temperature_Range_C, y = Suitability_Values, group = Source, color = Source)) +
+  geom_line() +
+  geom_point() +
+  labs(
+    x = "Temperature Range (°C)",
+    y = "Suitability Values",
+    title = "Suitability Indices for Average Depth: Pardue Data"
+  ) +
+  theme_minimal()
+
+plot_brown <- ggplot(brown_data, aes(x = Temperature_Range_C, y = Suitability_Values, group = Source, color = Source)) +
+  geom_line() +
+  geom_point() +
+  labs(
+    x = "Temperature Range (°C)",
+    y = "Suitability Values",
+    title = "Suitability Indices for Average Depth: Brown Data"
+  ) +
+  theme_minimal()
+
+grid.arrange(arrangeGrob(plot_pardue, plot_brown, plot_alewife, nrow = 3), top="Comparing Suitability Indices for Depth")
 #Close jpeg creation
 invisible(dev.off())
 
 #Display figure
-knitr::include_graphics("Fig01.Adult_Alewife_Temp_HSI.jpeg")
+knitr::include_graphics("Fig02.Juv_Alewife_Temp_HSI.jpeg")
 ```
 
 ```{r, echo= FALSE, include=TRUE, fig.align = "center", fig.cap="Non-Migratory Juvenile Alewife and Larvae Temperature Suitability Indices", out.width="80%"}
@@ -374,7 +418,7 @@ rownames(data) <- c('New Model','','','','','','',
 # assign to table
 final=as.table(data)
 knitr::kable(x = data, #the data for the table
-            caption = "Suitability Indices for Average Depth: Spawning Adult Alewives",
+            caption = "Suitability Indices for Average Depth: Non-Migratory Juvenile Alewife and Larvae",
             format = "markdown",
             escape = FALSE,
             booktabs = TRUE,
@@ -407,7 +451,7 @@ rownames(data) <- c('New Model','','','','','','','','',
 # assign to table
 final=as.table(data)
 knitr::kable(x = data, #the data for the table
-            caption = "Suitability Indices for Average Salinity: Spawning Adult Alewives",
+            caption = "Suitability Indices for Average Salinity: Non-Migratory Juvenile Alewife and Larvae",
             format = "markdown",
             escape = FALSE,
             booktabs = TRUE,
@@ -440,7 +484,7 @@ rownames(data) <- c('New Model','','','','','','','',
 # assign to table
 final=as.table(data)
 knitr::kable(x = data, #the data for the table
-            caption = "Suitability Indices for Flow Velocity: Spawning Adult Alewives",
+            caption = "Suitability Indices for Flow Velocity: Non-Migratory Juvenile Alewife and Larvae",
             format = "markdown",
             escape = FALSE,
             booktabs = TRUE,
@@ -473,7 +517,7 @@ rownames(data) <- c('New Model','','','',
 # assign to table
 final=as.table(data)
 knitr::kable(x = data, #the data for the table
-            caption = "Suitability Indices for Predominant Substrate Type: Spawning Adult Alewives",
+            caption = "Suitability Indices for Predominant Substrate Type: Non-Migratory Juvenile Alewife and Larvae",
             format = "markdown",
             escape = FALSE,
             booktabs = TRUE,
@@ -487,7 +531,7 @@ column_spec(5,width_min = "20em")
 The updated model also distinguishes between soft and hard substrate types, recognizing their significance. Soft substrates are associated with moderate suitability, while hard substrates are considered highly suitable. Additionally, the model acknowledges the presence or absence of sub-aquatic vegetation (SAV) as a parameter, recognizing the ecological importance of vegetation in these habitats. This comprehensive approach to substrate preferences ensures that a variety of habitat types is considered when managing and conserving suitable environments for non-migratory juvenile alewife and larvae.
 
 ### Figures & Tables
-```{r, echo= FALSE, include=TRUE, fig.align = "center", fig.cap="Spawning Adult Alewife Suitability Indices", out.width="80%"}
+```{r, echo= FALSE, include=TRUE, fig.align = "center", opts_chunk = FALSE, fig.cap="Spawning Adult Alewife Suitability Indices", out.width="80%"}
 library(dplyr)
 library(knitr)
 library(kableExtra)
@@ -547,7 +591,7 @@ column_spec(4,width_min = "20em") %>%
 column_spec(5,width_min = "20em")
 ```
 
-```{r, echo= FALSE, include=TRUE, fig.align = "center", fig.cap="Suitability Indices Non-migratory Juvenile Alewife and Larvae", out.width="80%"}
+```{r, echo= FALSE, include=TRUE, fig.align = "center", opts_chunk = FALSE, fig.cap="Suitability Indices Non-migratory Juvenile Alewife and Larvae", out.width="80%"}
 
 data= matrix(c('A','','','','','','B','','','','','','','C','','','','','','','','','D','','','','','','','','E','','',''), ncol=1, byrow=TRUE)
 
@@ -606,7 +650,7 @@ column_spec(4,width_min = "20em") %>%
 column_spec(5,width_min = "20em")
 ```
 
-```{r, echo= FALSE, include=TRUE, fig.align = "center", fig.cap="Spawning Adult Alewife Suitability Indices", out.width="80%"}
+```{r, echo= FALSE, include=TRUE, fig.align = "center", opts_chunk = FALSE, fig.cap="Spawning Adult Alewife Suitability Indices", out.width="80%"}
 #Create data frame for suitability curves
 riparian0 <- data.frame(matrix(NA, nrow=5, ncol=6))
 colnames(riparian0) <- c("Ins.Buffer.Width.Avg.m", "Index.Instream", "Bio.Buffer.Width.Avg.m", "Index.Biodiversity", "Buffer.Width.Min.m", "Index.Connectivity")
